@@ -62,7 +62,7 @@ const EventCard = ({
             color={colors.primary}
         >
             {
-                screenSize?.width > 500 ? <Box display={{ base: 'none', lg: 'flex' }} width="100%"
+                screenSize?.width > 500 ? <Box width="100%"
                     height={"500px"} position='relative'>
                     <Image
                         width="100%"
@@ -74,7 +74,7 @@ const EventCard = ({
                         layout='fill'
                     // priority={true}
                     />
-                </Box> : <Box display={{ base: 'flex', lg: 'none' }} width="100%"
+                </Box> : <Box width="100%"
                     height={"150px"} position='relative'>
                     <Image
                         width="180px"
