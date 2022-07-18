@@ -58,6 +58,18 @@ const EventCard = ({
             flexDirection={'column'}
             color={colors.primary}
         >
+            <Box display={{ base: 'flex', lg: 'none' }} width="100%"
+                height={"150px"} position='relative'>
+                <Image
+                    width="180px"
+                    height={"150px"}
+                    src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=300&quality=80&format=webp' ?? '/placeholder.png')}
+                    alt={'Photo of ' + event?.title}
+                    // objectFit="cover"
+                    layout='fill'
+                    priority={true}
+                />
+            </Box>
             <Box display={{ base: 'none', lg: 'flex' }} width="100%"
                 height={"500px"} position='relative'>
                 <Image
@@ -71,18 +83,7 @@ const EventCard = ({
                 // priority={true}
                 />
             </Box>
-            <Box display={{ base: 'flex', lg: 'none' }} width="100%"
-                height={"150px"} position='relative'>
-                <Image
-                    width="180px"
-                    height={"150px"}
-                    src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=300&quality=80&format=webp' ?? '/placeholder.png')}
-                    alt={'Photo of ' + event?.title}
-                    // objectFit="cover"
-                    layout='fill'
-                    priority={true}
-                />
-            </Box>
+
             <Box color={"white"} bg={"red"} pt="2px" textAlign={'center'} pb="18px" fontSize={"14px"}>
                 <Box h={heightTitle}>
 

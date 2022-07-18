@@ -44,6 +44,21 @@ const PostCard = ({ idArticle, article }: Props) => {
         rounded={{ lg: "lg" }}
         w="full"
       >
+        <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
+          <Image
+            // objectFit="fill"
+            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
+            // maxHeight={"640px"}
+            //
+            width="350px"
+            height={"35vh"}
+            objectFit='cover'
+            layout='fill'
+            // w="100%"
+            priority={true}
+            alt='banner'
+          />
+        </Box>
         <Box
           w={{ lg: "100%" }}
           display={{ base: "none", lg: "flex" }}
@@ -64,21 +79,7 @@ const PostCard = ({ idArticle, article }: Props) => {
           pr={{ base: "0px", lg: "80px" }}
         ></Box>
 
-        <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
-          <Image
-            // objectFit="fill"
-            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
-            // maxHeight={"640px"}
-            //
-            width="350px"
-            height={"35vh"}
-            objectFit='cover'
-            layout='fill'
-            // w="100%"
-            priority={true}
-            alt='banner'
-          />
-        </Box>
+
 
         <Box
           color={colors.primary}
