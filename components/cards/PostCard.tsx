@@ -44,7 +44,23 @@ const PostCard = ({ idArticle, article }: Props) => {
         rounded={{ lg: "lg" }}
         w="full"
       >
+        <Box w="100%" h="600px" display={{ base: "none", lg: "flex" }} position='relative'>
+          <Image
+            // objectFit="fill"
+            src={getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=1400&quality=100')}
+            // maxHeight={"640px"}
+            //
+            width="100%"
+            height={"45vh"}
+            objectFit='fill'
+            layout='fill'
+            // w="100%"
+            priority={true}
+            alt='banner'
+          />
+        </Box>
         <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
+
           <Image
             // objectFit="fill"
             src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
@@ -59,7 +75,9 @@ const PostCard = ({ idArticle, article }: Props) => {
             alt='banner'
           />
         </Box>
-        <Box
+
+
+        {/* <Box
           w={{ lg: "100%" }}
           display={{ base: "none", lg: "flex" }}
           style={{
@@ -77,7 +95,7 @@ const PostCard = ({ idArticle, article }: Props) => {
           h={{ base: "350px", lg: "660px" }}
           pl={{ base: "0px", lg: "80px" }}
           pr={{ base: "0px", lg: "80px" }}
-        ></Box>
+        ></Box> */}
 
 
 
