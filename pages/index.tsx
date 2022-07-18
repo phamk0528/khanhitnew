@@ -37,28 +37,16 @@ type Props = {
     homepageContent?: any
     bestSeller?: any
     recommend?: any
+    homepageContentData: any
+    listArraivel: any
+    listBanner: any
+    bannerHighlight: any
+    flashSaleHighlight: any
+    homepageFooterData: any
 };
 
-const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props) => {
-    const homepageContentData = _.values(homepageContent?.homepage_content)
+const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArraivel, listBanner, bannerHighlight, recommend, bestSeller, homepageContentData }: Props) => {
 
-    const homepageFooterData = _.values(homepageContent?.footer)
-    const listContent = homepageContentData?.filter((x: any) => {
-        return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
-    })
-    const listArraivel = homepageContentData?.filter((x: any) => {
-        return x?.id === "YferTLSC" || x?.id === "jGekaT+o"
-    })?.map((x: any, i: any) => { return { ...x, textContent: listContent[+i]?.props?.values?.text } })
-
-    const listBanner = homepageContentData?.filter((x: any) => {
-        return x?.id === "4g+Chi4C"
-    })
-    const bannerHighlight = homepageContentData?.filter((x: any) => {
-        return x?.id === "81QE/qtW"
-    })
-    const flashSaleHighlight = homepageContentData?.filter((x: any) => {
-        return x?.id === "KpVRNCGX"
-    })
 
     return (
         <>
@@ -111,10 +99,35 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         let recommend = await useGetProductByCollection(13)
 
 
+        const homepageContentData = _.values(homepageContent?.homepage_content)
+
+        const homepageFooterData = _.values(homepageContent?.footer)
+        const listContent = homepageContentData?.filter((x: any) => {
+            return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
+        })
+        const listArraivel = homepageContentData?.filter((x: any) => {
+            return x?.id === "YferTLSC" || x?.id === "jGekaT+o"
+        })?.map((x: any, i: any) => { return { ...x, textContent: listContent[+i]?.props?.values?.text } })
+
+        const listBanner = homepageContentData?.filter((x: any) => {
+            return x?.id === "4g+Chi4C"
+        })
+        const bannerHighlight = homepageContentData?.filter((x: any) => {
+            return x?.id === "81QE/qtW"
+        })
+        const flashSaleHighlight = homepageContentData?.filter((x: any) => {
+            return x?.id === "KpVRNCGX"
+        })
+
         return {
             props: {
 
-                homepageContent: homepageContent,
+                homepageContentData: homepageContentData,
+                homepageFooterData: homepageFooterData,
+                listArraivel: listArraivel,
+                listBanner: listBanner,
+                bannerHighlight: bannerHighlight,
+                flashSaleHighlight: flashSaleHighlight,
                 bestSeller: bestSeller,
                 recommend: recommend
             },
