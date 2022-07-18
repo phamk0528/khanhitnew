@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { chakra, Box, Flex, useColorModeValue, HStack, Text } from '@chakra-ui/react';
-import _ from 'lodash';
+
 import Card from './Card';
 import Image from 'next/image'
 
@@ -15,7 +15,7 @@ type ColorProps = {
 };
 const ColorCard = ({ colors }: ColorProps) => {
     return (
-        <Box spacing="10px" minH={{ base: '70px', md: '70px' }}>
+        <Box minH={{ base: '70px', md: '70px' }}>
             {colors.length !== 0 ? (
                 <>
                     <Box alignItems="center" justifyContent="space-between" bg="white" roundedBottom="lg" px={1} py={2}>
@@ -41,7 +41,7 @@ const ProductCard = ({ product, heightTitle }: Props) => {
     const urlImage: any = product?.photos?.photo_set ? Object?.values(product?.photos?.photo_set) : Object?.values(product?.photos)
 
 
-    const colorsArray = _.values(product?.photos?.photo_set)?.map(x => x?.code)
+    const colorsArray = product?.photos?.photo_set ? Object.values(product?.photos?.photo_set)?.map((x: any) => x?.code) : []
     const colors = [...new Set(colorsArray)];
 
 

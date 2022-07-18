@@ -1,24 +1,20 @@
 import React from 'react';
 import TrendingCard from '../components/views/homepage/Trending';
 import ListEvents from '../components/views/homepage/ListEvents';
-import ListDeals from '../components/views/homepage/ListDeals';
+
 import { Box } from '@chakra-ui/react';
 import Banner from '../components/banner/Banner';
 import { GetStaticProps } from 'next';
-import { useGetAllCarousels, useGetHomePage, useGetProductByCollection } from '../helpers/carousels';
-import { useGetEventsByParams } from '../helpers/events';
-import { useGetDealsByParams } from '../helpers/deals';
-import { useGetContentHomePage } from '../helpers/homepage';
+import { useGetHomePage, useGetProductByCollection } from '../helpers/carousels';
 import { NextSeo } from 'next-seo';
-import dynamic from 'next/dynamic';
-import ComingSoon from '../components/views/comingSoon';
-import _ from 'lodash';
+
+
 import ListProducts from '../components/views/homepage/ListProductCard';
 import HightLight from '../components/views/homepage/HighLight';
 import ListSlideView from '../components/views/homepage/ListSlideView';
 import FeaturedBranch from '../components/views/homepage/FeatureBranch';
 import FooterHomePage from '../components/views/homepage/Footer';
-const MyDynamicComponent = dynamic(() => import('../components/views/homepage/Instagrams'), { ssr: false });
+
 type Props = {
     featured?: any;
     banners?: any;
@@ -33,8 +29,9 @@ type Props = {
 };
 
 const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props) => {
-    const homepageContentData = _.values(homepageContent?.homepage_content)
-    const homepageFooterData = _.values(homepageContent?.footer)
+    const homepageContentData = Object.values(homepageContent?.homepage_content)
+
+    const homepageFooterData = Object.values(homepageContent?.footer)
     const listContent = homepageContentData?.filter((x: any) => {
         return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
     })
@@ -51,11 +48,6 @@ const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props)
     const flashSaleHighlight = homepageContentData?.filter((x: any) => {
         return x?.id === "KpVRNCGX"
     })
-
-
-    console.log("listBanner", homepageContent)
-    console.log("recommend", recommend)
-
 
     return (
         <>

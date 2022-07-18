@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Box, BoxProps, Text, useBreakpointValue, Icon, Flex } from '@chakra-ui/react';
+import { Box, BoxProps, useBreakpointValue } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
 import Card from './Card';
-import _ from 'lodash';
+
 import moment from 'moment';
 import { getUrlImage } from '../../helpers/commonFuction';
-import { AiFillCalendar } from 'react-icons/ai';
-import Fade from 'react-reveal/Fade';
+
 
 interface Props extends BoxProps {
     event: any;
@@ -35,12 +34,8 @@ const EventCard = ({
 }: Props) => {
     const [hover, setHover] = useState(false);
     const colors = useColorTheme();
-    const flexDirection: FlexDirection = useBreakpointValue({
-        base: 'column',
-        md: column ? 'column' : 'row',
-    });
-    const vaildForm = moment(event.start_date).format('Do MMM');
-    const validTo = moment(event.end_date).format('Do MMM');
+
+
     const router = useRouter();
     const onClickEvent = () => {
         router.push(`/events/${idEvent}`);
