@@ -70,8 +70,8 @@ const PostCard = ({ idArticle, article }: Props) => {
             src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90')}
             // maxHeight={"640px"}
             //
-            width="380px"
-            height={"40vh"}
+            width="350px"
+            height={"35vh"}
             objectFit='cover'
             layout='fill'
             // w="100%"
