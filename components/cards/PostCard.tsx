@@ -23,9 +23,7 @@ interface Props extends FlexProps {
 }
 
 const PostCard = ({ idArticle, article }: Props) => {
-  const [hover, setHover] = useState(false);
 
-  const screenSize = useWindowSize();
 
   return (
     <Flex
