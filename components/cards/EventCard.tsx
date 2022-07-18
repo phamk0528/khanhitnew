@@ -76,11 +76,11 @@ const EventCard = ({
                 <Image
                     width="180px"
                     height={"170px"}
-                    src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=380&quality=80' ?? '/placeholder.png')}
+                    src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=80' ?? '/placeholder.png')}
                     alt={'Photo of ' + event?.title}
                     // objectFit="cover"
                     layout='fill'
-                // priority={true}
+                    priority={true}
                 />
             </Box>
             <Box color={"white"} bg={"red"} pt="2px" textAlign={'center'} pb="18px" fontSize={"14px"}>
