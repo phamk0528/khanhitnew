@@ -72,10 +72,10 @@ const EventCard = ({
                 />
             </Box>
             <Box display={{ base: 'flex', lg: 'none' }} width="100%"
-                height={"170px"} position='relative'>
+                height={"150px"} position='relative'>
                 <Image
                     width="180px"
-                    height={"170px"}
+                    height={"150px"}
                     src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=80' ?? '/placeholder.png')}
                     alt={'Photo of ' + event?.title}
                     // objectFit="cover"
