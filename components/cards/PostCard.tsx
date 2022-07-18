@@ -14,7 +14,6 @@ import Image from 'next/image'
 
 import { getUrlImage } from "../../helpers/commonFuction";
 import { colors } from "../../styles/theme";
-import useWindowSize from "../../hooks/useWindowSize";
 
 interface Props extends FlexProps {
   alt: string;
@@ -24,7 +23,6 @@ interface Props extends FlexProps {
 
 const PostCard = ({ idArticle, article }: Props) => {
   const [hover, setHover] = useState(false);
-  const screenSize = useWindowSize();
 
 
   return (
@@ -46,28 +44,27 @@ const PostCard = ({ idArticle, article }: Props) => {
         rounded={{ lg: "lg" }}
         w="full"
       >
-        {/* {
-          screenSize?.width > 500 ?
-            <Box
-              w={{ lg: "100%" }}
+        <Box
+          w={{ lg: "100%" }}
+          display={{ base: "none", lg: "flex" }}
+          style={{
+            backgroundImage: hover
+              ? `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1400&quality=100'}`
+              : `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1400&quality=100'}")`,
+            // backgroundImage:  `url("${getUrlImage(article.hero_desktop.url)}`,
+            backgroundRepeat: "no-repeat",
 
-              style={{
-                backgroundImage: hover
-                  ? `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1400&quality=100'}`
-                  : `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1400&quality=100'}")`,
-                // backgroundImage:  `url("${getUrlImage(article.hero_desktop.url)}`,
-                backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "50% 50%"
+          }}
+          justifyContent="flex-end"
+          flexDirection="column"
+          h={{ base: "350px", lg: "660px" }}
+          pl={{ base: "0px", lg: "80px" }}
+          pr={{ base: "0px", lg: "80px" }}
+        ></Box>
 
-                backgroundSize: "cover",
-                backgroundPosition: "50% 50%"
-              }}
-              justifyContent="flex-end"
-              flexDirection="column"
-              h={{ base: "350px", lg: "660px" }}
-              pl={{ base: "0px", lg: "80px" }}
-              pr={{ base: "0px", lg: "80px" }}
-            ></Box> : */}
-        <Box w="100%" h="40vh" position='relative'>
+        <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
           <Image
             // objectFit="fill"
             src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90')}
@@ -82,10 +79,6 @@ const PostCard = ({ idArticle, article }: Props) => {
             alt='banner'
           />
         </Box>
-        {/* } */}
-
-
-
 
         <Box
           color={colors.primary}
