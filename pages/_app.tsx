@@ -1,4 +1,4 @@
-// import App from "next/app";
+
 import type { AppProps /*, AppContext */ } from 'next/app';
 import '../styles/index.css';
 import { Fonts } from '../fonts';
@@ -8,8 +8,6 @@ import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { css } from '@emotion/core';
 import { BounceLoader } from 'react-spinners';
-
-import 'aos/dist/aos.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
@@ -33,9 +31,6 @@ function Application({ Component, pageProps }: AppProps) {
     Router.events.on('routeChangeStart', () => setLoading(true));
     Router.events.on('routeChangeComplete', () => setLoading(false));
     Router.events.on('routeChangeError', () => setLoading(false));
-
-
-
     return (
 
         <RecoilRoot>
