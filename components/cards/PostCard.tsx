@@ -75,7 +75,7 @@ const PostCard = ({ idArticle, article }: Props) => {
             objectFit='cover'
             layout='fill'
             // w="100%"
-            // priority={true}
+            priority={true}
             alt='banner'
           />
         </Box>
