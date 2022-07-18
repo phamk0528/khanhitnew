@@ -16,6 +16,7 @@ import FeaturedBranch from '../components/views/homepage/FeatureBranch';
 import FooterHomePage from '../components/views/homepage/Footer';
 
 import TrendingCard from '../components/views/homepage/Trending';
+import _ from 'lodash';
 
 // const TrendingCard = dynamic(() => import('../components/views/homepage/Trending'))
 // const ListProducts = dynamic(() => import('../components/views/homepage/ListProductCard'))
@@ -39,9 +40,9 @@ type Props = {
 };
 
 const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props) => {
-    const homepageContentData = Object.values(homepageContent?.homepage_content)
+    const homepageContentData = _.values(homepageContent?.homepage_content)
 
-    const homepageFooterData = Object.values(homepageContent?.footer)
+    const homepageFooterData = _.values(homepageContent?.footer)
     const listContent = homepageContentData?.filter((x: any) => {
         return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
     })

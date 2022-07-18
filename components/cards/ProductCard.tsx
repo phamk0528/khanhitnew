@@ -3,6 +3,7 @@ import { chakra, Box, Flex, useColorModeValue, HStack, Text } from '@chakra-ui/r
 
 import Card from './Card';
 import Image from 'next/image'
+import _ from 'lodash';
 
 
 type Props = {
@@ -38,10 +39,10 @@ const ColorCard = ({ colors }: ColorProps) => {
 
 const ProductCard = ({ product, heightTitle }: Props) => {
     const [hover, setHover] = useState(false);
-    const urlImage: any = product?.photos?.photo_set ? Object?.values(product?.photos?.photo_set) : Object?.values(product?.photos)
+    const urlImage: any = product?.photos?.photo_set ? _.values?.(product?.photos?.photo_set) : _?.values(product?.photos)
 
 
-    const colorsArray = product?.photos?.photo_set ? Object.values(product?.photos?.photo_set)?.map((x: any) => x?.code) : []
+    const colorsArray = product?.photos?.photo_set ? _.values(product?.photos?.photo_set)?.map((x: any) => x?.code) : []
     const colors = [...new Set(colorsArray)];
 
 
