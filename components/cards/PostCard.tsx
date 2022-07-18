@@ -49,8 +49,8 @@ const PostCard = ({ idArticle, article }: Props) => {
           display={{ base: "none", lg: "flex" }}
           style={{
             backgroundImage: hover
-              ? `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1000&quality=100'}`
-              : `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1000&quality=100'}")`,
+              ? `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1000&quality=100&format=webp'}`
+              : `url("${getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/')) + '?width=1000&quality=100&format=webp'}")`,
             // backgroundImage:  `url("${getUrlImage(article.hero_desktop.url)}`,
             backgroundRepeat: "no-repeat",
 
@@ -67,7 +67,7 @@ const PostCard = ({ idArticle, article }: Props) => {
         <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
           <Image
             // objectFit="fill"
-            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90')}
+            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
             // maxHeight={"640px"}
             //
             width="350px"
