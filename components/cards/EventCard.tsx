@@ -63,11 +63,11 @@ const EventCard = ({
         >
             {
                 <Box width="100%"
-                    height={"150px"} position='relative'>
+                    height={{ base: "150px", md: '500px' }} position='relative'>
                     <Image
-                        width="180px"
-                        height={"150px"}
-                        src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=300&quality=80' ?? '/placeholder.png')}
+                        width={screenSize?.width > 500 ? "100%" : "180px"}
+                        height={screenSize?.width > 500 ? "100%" : "150px"}
+                        src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + screenSize?.width > 500 ? '?width=550&quality=100' : `?width=300&quality=80` ?? '/placeholder.png')}
                         alt={'Photo of ' + event?.title}
                         // objectFit="cover"
                         layout='fill'
