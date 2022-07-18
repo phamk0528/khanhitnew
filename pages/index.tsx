@@ -1,19 +1,28 @@
 import React from 'react';
-import TrendingCard from '../components/views/homepage/Trending';
+
 import ListEvents from '../components/views/homepage/ListEvents';
 
 import { Box } from '@chakra-ui/react';
-import Banner from '../components/banner/Banner';
+// import Banner from '../components/banner/Banner';
 import { GetStaticProps } from 'next';
 import { useGetHomePage, useGetProductByCollection } from '../helpers/carousels';
 import { NextSeo } from 'next-seo';
 
 
-import ListProducts from '../components/views/homepage/ListProductCard';
-import HightLight from '../components/views/homepage/HighLight';
-import ListSlideView from '../components/views/homepage/ListSlideView';
-import FeaturedBranch from '../components/views/homepage/FeatureBranch';
-import FooterHomePage from '../components/views/homepage/Footer';
+// import ListProducts from '../components/views/homepage/ListProductCard';
+// import HightLight from '../components/views/homepage/HighLight';
+// import ListSlideView from '../components/views/homepage/ListSlideView';
+// import FeaturedBranch from '../components/views/homepage/FeatureBranch';
+// import FooterHomePage from '../components/views/homepage/Footer';
+import dynamic from 'next/dynamic'
+
+const TrendingCard = dynamic(() => import('../components/views/homepage/Trending'))
+const ListProducts = dynamic(() => import('../components/views/homepage/ListProductCard'))
+const HightLight = dynamic(() => import('../components/views/homepage/HighLight'))
+const ListSlideView = dynamic(() => import('../components/views/homepage/ListSlideView'))
+const FeaturedBranch = dynamic(() => import('../components/views/homepage/FeatureBranch'))
+const FooterHomePage = dynamic(() => import('../components/views/homepage/Footer'))
+const Banner = dynamic(() => import('../components/banner/Banner'))
 
 type Props = {
     featured?: any;
