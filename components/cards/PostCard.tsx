@@ -25,6 +25,8 @@ interface Props extends FlexProps {
 const PostCard = ({ idArticle, article }: Props) => {
 
 
+  const screenSize = useWindowSize();
+
   return (
     <Flex
       bg={useColorModeValue("white", "gray.800")}
@@ -53,7 +55,7 @@ const PostCard = ({ idArticle, article }: Props) => {
             objectFit='fill'
             layout='fill'
             // w="100%"
-            priority={true}
+            priority={screenSize.width > 500 ? true : false}
             alt='banner'
           />
         </Box>
