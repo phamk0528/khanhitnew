@@ -7,6 +7,7 @@ import Card from './Card';
 
 import moment from 'moment';
 import { getUrlImage } from '../../helpers/commonFuction';
+import useWindowSize from '../../hooks/useWindowSize';
 
 
 interface Props extends BoxProps {
@@ -20,7 +21,7 @@ interface Props extends BoxProps {
     heightTitle: string;
 }
 
-type FlexDirection = 'row' | 'column' | undefined;
+
 
 const EventCard = ({
     event,
@@ -42,6 +43,8 @@ const EventCard = ({
         window.scrollTo(0, 0);
     };
 
+    const screenSize = useWindowSize();
+
     return (
 
         <Card
@@ -58,31 +61,33 @@ const EventCard = ({
             flexDirection={'column'}
             color={colors.primary}
         >
-            {/* <Box display={{ base: 'none', lg: 'flex' }} width="100%"
-                height={"500px"} position='relative'>
-                <Image
-                    width="100%"
-                    height={"100%"}
+            {
+                screenSize?.width > 500 ? <Box display={{ base: 'none', lg: 'flex' }} width="100%"
+                    height={"500px"} position='relative'>
+                    <Image
+                        width="100%"
+                        height={"100%"}
 
-                    src={getUrlImage(event?.photos[0]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=550&quality=100' ?? '/placeholder.png')}
-                    alt={'Photo of ' + event?.title}
-                    objectFit="contain"
-                    layout='fill'
-                // priority={true}
-                />
-            </Box> */}
-            <Box display={{ base: 'flex', lg: 'none' }} width="100%"
-                height={"150px"} position='relative'>
-                <Image
-                    width="180px"
-                    height={"150px"}
-                    src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=300&quality=80' ?? '/placeholder.png')}
-                    alt={'Photo of ' + event?.title}
-                    // objectFit="cover"
-                    layout='fill'
-                    priority={true}
-                />
-            </Box>
+                        src={getUrlImage(event?.photos[0]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=550&quality=100' ?? '/placeholder.png')}
+                        alt={'Photo of ' + event?.title}
+                        objectFit="contain"
+                        layout='fill'
+                    // priority={true}
+                    />
+                </Box> : <Box display={{ base: 'flex', lg: 'none' }} width="100%"
+                    height={"150px"} position='relative'>
+                    <Image
+                        width="180px"
+                        height={"150px"}
+                        src={getUrlImage(event?.photos[1]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=300&quality=80' ?? '/placeholder.png')}
+                        alt={'Photo of ' + event?.title}
+                        // objectFit="cover"
+                        layout='fill'
+                        priority={true}
+                    />
+                </Box>
+            }
+
             <Box color={"white"} bg={"red"} pt="2px" textAlign={'center'} pb="18px" fontSize={"14px"}>
                 <Box h={heightTitle}>
 
