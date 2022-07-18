@@ -66,7 +66,7 @@ const DesktopNav = () => {
             >
                 <Flex alignItems="center" justifyContent="space-between" mx="auto">
                     <HStack display="flex" spacing={3} alignItems="center">
-                        <Box display={{ base: "inline-flex", md: "none" }}>
+                        <Box display={{ base: "inline-flex", md: "none" }} flex={0.5}>
                             <IconButton
                                 display={{ base: "flex", md: "none" }}
                                 aria-label="Open menu"
@@ -122,12 +122,15 @@ const DesktopNav = () => {
                             title="Choc Home Page"
                             display="flex"
                             alignItems="center"
+                            flex={1}
                         >
                             <Logo />
 
                         </chakra.a>
 
-                        <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
+
+
+                        <HStack spacing={3} display={{ base: "none", md: "inline-flex" }} flex={1}>
                             <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
                                 Dashboard
                             </Button>
