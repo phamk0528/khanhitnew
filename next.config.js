@@ -34,15 +34,6 @@ const securityHeaders = [
 ];
 
 module.exports = {
-    async headers() {
-        return [
-            {
-                // Apply these headers to all routes in your application.
-                source: '/:path*',
-                headers: securityHeaders,
-            },
-        ];
-    },
     typescript: {
         ignoreBuildErrors: true,
     },
@@ -50,4 +41,6 @@ module.exports = {
     images: {
         domains: ['playitright.s3-ap-southeast-1.amazonaws.com', 'quocbcx-1c878.kxcdn.com'],
     },
+    reactStrictMode: true,
+    experimental: { optimizeCss: true },
 };
