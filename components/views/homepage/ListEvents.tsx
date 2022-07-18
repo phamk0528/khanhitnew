@@ -1,12 +1,7 @@
 import { Center, Box, Heading, Button, Icon, Divider, SimpleGrid } from '@chakra-ui/react';
 import React, { useRef } from 'react';
-import useColorTheme from '../../../hooks/useColorTheme';
+
 import EventCard from '../../cards/EventCard';
-import Slider from 'react-slick';
-import useWindowSize from '../../../hooks/useWindowSize';
-import { useRouter } from 'next/router';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { useHover } from '../../../hooks/useHover';
 
 type Props = {
     events: any;
@@ -52,7 +47,7 @@ const ListEvents = ({ events }: Props) => {
                 >
                     New Arraivals
                 </Heading>
-                {/* <Divider colorScheme="blackAlpha" display={{ base: 'flex', md: 'none' }} /> */}
+
 
                 <SimpleGrid
                     pt={3}

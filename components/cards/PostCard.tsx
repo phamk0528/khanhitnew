@@ -14,6 +14,7 @@ import Image from 'next/image'
 
 import { getUrlImage } from "../../helpers/commonFuction";
 import { colors } from "../../styles/theme";
+import useWindowSize from "../../hooks/useWindowSize";
 
 interface Props extends FlexProps {
   alt: string;
@@ -24,6 +25,7 @@ interface Props extends FlexProps {
 const PostCard = ({ idArticle, article }: Props) => {
   const [hover, setHover] = useState(false);
 
+  const screenSize = useWindowSize();
 
   return (
     <Flex
@@ -44,37 +46,39 @@ const PostCard = ({ idArticle, article }: Props) => {
         rounded={{ lg: "lg" }}
         w="full"
       >
-        <Box w="100%" h="600px" display={{ base: "none", lg: "flex" }} position='relative'>
-          <Image
-            // objectFit="fill"
-            src={getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=1400&quality=100')}
-            // maxHeight={"640px"}
-            //
-            width="100%"
-            height={"45vh"}
-            objectFit='fill'
-            layout='fill'
-            // w="100%"
-            // priority={true}
-            alt='banner'
-          />
-        </Box>
-        <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
+        {
+          screenSize.width ? <Box w="100%" h="600px" position='relative'>
+            <Image
+              // objectFit="fill"
+              src={getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=1400&quality=100')}
+              // maxHeight={"640px"}
+              //
+              width="100%"
+              height={"45vh"}
+              objectFit='fill'
+              layout='fill'
+              // w="100%"
+              priority={true}
+              alt='banner'
+            />
+          </Box> : <Box w="100%" h="40vh" position='relative'>
 
-          <Image
-            // objectFit="fill"
-            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
-            // maxHeight={"640px"}
-            //
-            width="350px"
-            height={"35vh"}
-            objectFit='cover'
-            layout='fill'
-            // w="100%"
-            priority={true}
-            alt='banner'
-          />
-        </Box>
+            <Image
+              // objectFit="fill"
+              src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
+              // maxHeight={"640px"}
+              //
+              width="350px"
+              height={"35vh"}
+              objectFit='cover'
+              layout='fill'
+              // w="100%"
+              priority={true}
+              alt='banner'
+            />
+          </Box>
+        }
+
 
 
         {/* <Box
