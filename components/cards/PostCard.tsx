@@ -34,9 +34,7 @@ const PostCard = ({ idArticle, article }: Props) => {
       h="100%"
       alignItems="center"
       justifyContent="center"
-      onClick={() => onClick()}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+
     >
       <Box
         bg={useColorModeValue("white", "gray.800")}
@@ -46,39 +44,37 @@ const PostCard = ({ idArticle, article }: Props) => {
         rounded={{ lg: "lg" }}
         w="full"
       >
-        {
-          screenSize.width > 500 ? <Box w="100%" h="600px" position='relative'>
-            <Image
-              // objectFit="fill"
-              src={getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=1400&quality=100')}
-              // maxHeight={"640px"}
-              //
-              width="100%"
-              height={"45vh"}
-              objectFit='fill'
-              layout='fill'
-              // w="100%"
-              priority={true}
-              alt='banner'
-            />
-          </Box> : <Box w="100%" h="40vh" position='relative'>
+        <Box w="100%" h="600px" display={{ base: "none", lg: "flex" }} position='relative'>
+          <Image
+            // objectFit="fill"
+            src={getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=1400&quality=100')}
+            // maxHeight={"640px"}
+            //
+            width="100%"
+            height={"45vh"}
+            objectFit='fill'
+            layout='fill'
+            // w="100%"
+            priority={true}
+            alt='banner'
+          />
+        </Box>
+        <Box w="100%" h="40vh" display={{ base: "flex", lg: "none" }} position='relative'>
 
-            <Image
-              // objectFit="fill"
-              src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
-              // maxHeight={"640px"}
-              //
-              width="350px"
-              height={"35vh"}
-              objectFit='cover'
-              layout='fill'
-              // w="100%"
-              priority={true}
-              alt='banner'
-            />
-          </Box>
-        }
-
+          <Image
+            // objectFit="fill"
+            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90&format=webp')}
+            // maxHeight={"640px"}
+            //
+            width="350px"
+            height={"35vh"}
+            objectFit='cover'
+            layout='fill'
+            // w="100%"
+            priority={true}
+            alt='banner'
+          />
+        </Box>
 
 
         {/* <Box
