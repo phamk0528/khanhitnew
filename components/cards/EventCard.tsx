@@ -68,7 +68,7 @@ const EventCard = ({
                     alt={'Photo of ' + event?.title}
                     objectFit="contain"
                     layout='fill'
-                    priority={true}
+                // priority={true}
                 />
             </Box>
             <Box display={{ base: 'flex', lg: 'none' }} width="100%"
@@ -80,7 +80,7 @@ const EventCard = ({
                     alt={'Photo of ' + event?.title}
                     // objectFit="cover"
                     layout='fill'
-                    priority={true}
+                // priority={true}
                 />
             </Box>
             <Box color={"white"} bg={"red"} pt="2px" textAlign={'center'} pb="18px" fontSize={"14px"}>
