@@ -130,17 +130,18 @@ const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props)
 export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
 
-        let homepageContent = await useGetHomePage()
-        let bestSeller = await useGetProductByCollection(10)
-        let recommend = await useGetProductByCollection(13)
+        let homepageContent = useGetHomePage()
+        let bestSeller = useGetProductByCollection(10)
+        let recommend = useGetProductByCollection(13)
 
+        let result = await Promise.all([homepageContent, bestSeller, recommend])
 
         return {
             props: {
 
-                homepageContent: homepageContent,
-                bestSeller: bestSeller,
-                recommend: recommend
+                homepageContent: result[0],
+                bestSeller: result[1],
+                recommend: result[2]
             },
             revalidate: 60,
         };
