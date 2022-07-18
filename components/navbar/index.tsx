@@ -91,9 +91,9 @@ export default function WithSubnavigation() {
                 </Flex>
                 <Flex flex={{ base: 2, md: 'auto' }} justify={{ base: 'center', md: 'center' }} alignItems='center'>
                     <Button variant="ghost">
-                        <Link href="/" aria-label="homepage">
+                        {/* <Link href="/" aria-label="homepage">
                             <Logo src="/logoPlayrightIT.png" />
-                        </Link>
+                        </Link> */}
                     </Button>
                     <Flex display={{ base: 'none', md: 'none', lg: 'flex' }}>
                         <DesktopNav router={router} />
@@ -275,9 +275,7 @@ type PropsMobileNav = {
 const MobileNav = () => {
     return (
         <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ lg: 'none' }}>
-            <Box flexDirection="row" display="flex" justifyContent="center" mb="20px">
-                <Image src="/logoPlayrightIT.png" w="80px" />
-            </Box>
+
 
             <Box mt="30px">
                 {NAV_ITEMS.map((navItem) => (
