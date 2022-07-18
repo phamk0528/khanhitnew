@@ -46,7 +46,7 @@ const PostCard = ({ idArticle, article }: Props) => {
         rounded={{ lg: "lg" }}
         w="full"
       >
-        {
+        {/* {
           screenSize?.width > 500 ?
             <Box
               w={{ lg: "100%" }}
@@ -66,23 +66,23 @@ const PostCard = ({ idArticle, article }: Props) => {
               h={{ base: "350px", lg: "660px" }}
               pl={{ base: "0px", lg: "80px" }}
               pr={{ base: "0px", lg: "80px" }}
-            ></Box> :
-            <Box w="100%" h="40vh" position='relative'>
-              <Image
-                // objectFit="fill"
-                src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90')}
-                // maxHeight={"640px"}
-                //
-                width="350px"
-                height={"35vh"}
-                objectFit='cover'
-                layout='fill'
-                // w="100%"
-                priority={true}
-                alt='banner'
-              />
-            </Box>
-        }
+            ></Box> : */}
+        <Box w="100%" h="40vh" position='relative'>
+          <Image
+            // objectFit="fill"
+            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90')}
+            // maxHeight={"640px"}
+            //
+            width="350px"
+            height={"35vh"}
+            objectFit='cover'
+            layout='fill'
+            // w="100%"
+            priority={true}
+            alt='banner'
+          />
+        </Box>
+        {/* } */}
 
 
 

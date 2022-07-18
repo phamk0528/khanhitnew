@@ -62,19 +62,7 @@ const EventCard = ({
             color={colors.primary}
         >
             {
-                screenSize?.width > 500 ? <Box width="100%"
-                    height={"500px"} position='relative'>
-                    <Image
-                        width="100%"
-                        height={"100%"}
-
-                        src={getUrlImage(event?.photos[0]?.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=550&quality=100' ?? '/placeholder.png')}
-                        alt={'Photo of ' + event?.title}
-                        objectFit="contain"
-                        layout='fill'
-                    // priority={true}
-                    />
-                </Box> : <Box width="100%"
+                <Box width="100%"
                     height={"150px"} position='relative'>
                     <Image
                         width="180px"

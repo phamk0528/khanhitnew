@@ -58,7 +58,7 @@ const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArra
 
                     {listArraivel?.length > 0 ? <ListEvents events={listArraivel} /> : null}
 
-                    <Box display={{ base: 'none', lg: 'flex' }}>
+                    {/* <Box display={{ base: 'none', lg: 'flex' }}>
                         <Banner
                             mt={{ base: '20px', lg: '10px' }}
                             pl={{ base: '0px', lg: '60px' }}
@@ -66,7 +66,7 @@ const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArra
                             banner={{ url: listBanner[0]?.props?.values?.imageUrl?.url }}
 
                         />
-                    </Box>
+                    </Box> */}
                     <Box display={{ base: 'flex', lg: 'none' }}>
                         <Banner
                             mt={{ base: '20px', lg: '50px' }}
