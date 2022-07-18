@@ -47,7 +47,7 @@ const PostCard = ({ idArticle, article }: Props) => {
         w="full"
       >
         {
-          screenSize.width ? <Box w="100%" h="600px" position='relative'>
+          screenSize.width > 500 ? <Box w="100%" h="600px" position='relative'>
             <Image
               // objectFit="fill"
               src={getUrlImage(article.hero_desktop.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=1400&quality=100')}
