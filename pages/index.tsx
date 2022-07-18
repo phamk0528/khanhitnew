@@ -15,8 +15,9 @@ import { NextSeo } from 'next-seo';
 // import FeaturedBranch from '../components/views/homepage/FeatureBranch';
 // import FooterHomePage from '../components/views/homepage/Footer';
 import dynamic from 'next/dynamic'
+import TrendingCard from '../components/views/homepage/Trending';
 
-const TrendingCard = dynamic(() => import('../components/views/homepage/Trending'))
+// const TrendingCard = dynamic(() => import('../components/views/homepage/Trending'))
 const ListProducts = dynamic(() => import('../components/views/homepage/ListProductCard'))
 const HightLight = dynamic(() => import('../components/views/homepage/HighLight'))
 const ListSlideView = dynamic(() => import('../components/views/homepage/ListSlideView'))
