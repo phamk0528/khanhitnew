@@ -21,12 +21,8 @@ function Application({ Component, pageProps }: AppProps) {
             <DefaultSeo {...SEO} />
             <Chakra cookies={pageProps.cookies}>
                 <Layout title="Home | Modern News" px={{ base: '0px', md: '0px' }} >
-
-
-
-                    <Fonts />
-
                     <Component {...pageProps} />
+                    <Fonts />
                 </Layout>
 
             </Chakra>
