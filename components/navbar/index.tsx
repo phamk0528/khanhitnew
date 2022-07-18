@@ -34,8 +34,9 @@ import {
     AiOutlineMenu,
     AiFillHome,
     AiOutlineInbox,
+    AiOutlineUser,
     AiOutlineSearch,
-    AiFillBell,
+    AiOutlineShoppingCart,
 } from "react-icons/ai";
 
 
@@ -57,12 +58,14 @@ const DesktopNav = () => {
     const mobileNav = useDisclosure();
     return (
         <>
+            <NavBar />
             <chakra.header
 
                 w="full"
-                px={{ base: 2, sm: 4 }}
+                px={{ base: 2, sm: "20%" }}
                 py={4}
-                shadow="md"
+
+
             >
                 <Flex alignItems="center" justifyContent="space-between" mx="auto">
                     <HStack display="flex" spacing={3} alignItems="center">
@@ -77,45 +80,7 @@ const DesktopNav = () => {
                                 icon={<AiOutlineMenu />}
                                 onClick={mobileNav.onOpen}
                             />
-                            <Stack
-                                pos="absolute"
-                                top={0}
-                                left={0}
-                                right={0}
-                                display={mobileNav.isOpen ? "flex" : "none"}
-                                flexDirection="column"
-                                p={2}
-                                pb={4}
-                                m={2}
 
-                                spacing={3}
-                                rounded="sm"
-                                shadow="sm"
-                            >
-                                <CloseButton
-                                    aria-label="Close menu"
-                                    justifySelf="self-start"
-                                    onClick={mobileNav.onClose}
-                                />
-                                <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-                                    Dashboard
-                                </Button>
-                                <Button
-                                    w="full"
-                                    variant="solid"
-                                    colorScheme="brand"
-                                    leftIcon={<AiOutlineInbox />}
-                                >
-                                    Inbox
-                                </Button>
-                                <Button
-                                    w="full"
-                                    variant="ghost"
-                                    leftIcon={<BsFillCameraVideoFill />}
-                                >
-                                    Videos
-                                </Button>
-                            </Stack>
                         </Box>
                         <chakra.a
                             href="/"
@@ -130,26 +95,7 @@ const DesktopNav = () => {
 
 
 
-                        <HStack spacing={3} display={{ base: "none", md: "inline-flex" }} flex={1}>
-                            <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
-                                Dashboard
-                            </Button>
-                            <Button
-                                variant="solid"
-                                colorScheme="brand"
-                                leftIcon={<AiOutlineInbox />}
-                                size="sm"
-                            >
-                                Inbox
-                            </Button>
-                            <Button
-                                variant="ghost"
-                                leftIcon={<BsFillCameraVideoFill />}
-                                size="sm"
-                            >
-                                Videos
-                            </Button>
-                        </HStack>
+
                     </HStack>
                     <HStack
                         spacing={3}
@@ -169,18 +115,100 @@ const DesktopNav = () => {
                             _dark={{ color: "inherit" }}
                             rounded="sm"
                             _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
+                            display="flex"
+                            flexDir="row"
+                            aliginItems='center'
+                            minW="150px"
                         >
-                            <AiFillBell />
+                            <AiOutlineUser size='25px' />
+                            <Text fontSize='15px' pt="5px">Login/ Register</Text>
+                        </chakra.a>
+
+                        <chakra.a
+                            p={3}
+                            color="gray.800"
+                            _dark={{ color: "inherit" }}
+                            rounded="sm"
+                            _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
+
+                        >
+                            <AiOutlineShoppingCart size='25px' />
 
                         </chakra.a>
 
                     </HStack>
+
+                    <Box
+                        spacing={0}
+                        display={{ base: "flex", md: "none" }}
+                        alignItems="center"
+                        flex={0.5}
+                    >
+
+                        <chakra.a
+                            p={3}
+                            color="gray.800"
+                            _dark={{ color: "inherit" }}
+                            rounded="sm"
+                            _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
+                            display="flex"
+                            flexDir="row"
+                            aliginItems='center'
+
+                        >
+                            <AiOutlineUser size='25px' />
+
+                        </chakra.a>
+
+                        <chakra.a
+                            p={3}
+                            color="gray.800"
+                            _dark={{ color: "inherit" }}
+                            rounded="sm"
+                            _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
+
+                        >
+                            <AiOutlineShoppingCart size='25px' />
+
+                        </chakra.a>
+
+                    </Box>
                 </Flex>
-            </chakra.header></>
+            </chakra.header>
+            <MenuBar />
+        </>
     );
 };
 
 
+const NavBar = () => {
+    return (
+        <Box w="100%" height="50px" display={{ base: 'none', md: 'flex' }} flexDir='row' px='20%' py='20px' justifyContent='flex-end' bg="rgb(236, 236, 236);" >
+            {['contact us', 'track my order', 'help'].map((item: any) =>
+                <Box px='10px'>
+                    <Text fontSize="15px"
+                        fontWeight='bold'
+                        textTransform="uppercase">{item}</Text>
+                </Box>
 
+            )}
+        </Box>
+    )
 
+}
+const MenuBar = () => {
+    return (
+        <Box w="100%" height="50px" display={{ base: 'none', md: 'flex' }} flexDir='row' px='20%' py='20px' justifyContent='space-between'>
+            {['Men', 'Women', 'kids', 'playitright sports', 'brands'].map((item: any) =>
+                <Box px='10px'>
+                    <Text fontSize="15px"
+                        fontWeight='bold'
+                        textTransform="uppercase">{item}</Text>
+                </Box>
+
+            )}
+        </Box>
+    )
+
+}
 

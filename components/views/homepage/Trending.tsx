@@ -108,13 +108,14 @@ const TrendingCard = ({ carousels, homepageContentData }: Props) => {
       <Box bg='red.500' alignItems={'center'} display='flex' py="7px" mb="20px" >
         <Heading
           transition="ease-in 0.15s"
-          fontSize="12px"
+          fontSize={{ base: '15px', md: '18px' }}
           width="100%"
           textAlign="center"
           color='white'
           fontFamily="Arial"
           fontWeight={'normal'}
           lineHeight='20px'
+          py={{ base: '2px', md: '8px' }}
 
         >
           {announ?.props?.values?.valueText[0]?.title}
