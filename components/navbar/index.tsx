@@ -24,10 +24,10 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerBody,
-    DrawerCloseButton,
+    DrawerCloseButton, InputLeftElement, CloseButton
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
-import { AiOutlineSearch } from 'react-icons/ai';
+
 import { BiUserCircle } from 'react-icons/bi';
 import styles from '../../constants/styles';
 import { useFormik } from 'formik';
@@ -38,158 +38,24 @@ import { SearchKeyword } from '../../recoil/search';
 import { useRouter } from 'next/router';
 import Logo from '../Logo';
 import React, { useState, useEffect } from 'react';
+import { BsFillCameraVideoFill } from "react-icons/bs";
+import {
+    AiOutlineMenu,
+    AiFillHome,
+    AiOutlineInbox,
+    AiOutlineSearch,
+    AiFillBell,
+} from "react-icons/ai";
 
 
 export default function WithSubnavigation() {
-    const { isOpen, onClose, onOpen } = useDisclosure();
-    const [OpenSearch, setOpenSearch] = useState(false);
-
-    const [searchKeyword, setSearchKeyword] = useRecoilState(SearchKeyword);
-
-    const colors = useColorTheme();
 
 
 
-    const router = useRouter();
-
-    const onClick = () => {
-        router.push(`/search`);
-    };
-
-
-    const formik = useFormik({
-        initialValues: {
-            keyword: searchKeyword,
-        },
-        onSubmit: async (values) => {
-            setSearchKeyword(values.keyword);
-            OpenSearch ? setOpenSearch(!OpenSearch) : null;
-            onClick();
-        },
-    });
 
     return (
         <Box>
-            <Flex
-                bg={useColorModeValue('white', 'gray.800')}
-                color={colors.primary}
-                minH={'90px'}
-                py={{ base: 2 }}
-                px={{ base: 4 }}
-                borderBottom={1}
-                align={'center'}
-                maxW={styles.mainMaxWidth}
-                mx={'auto'}
-            >
-                <Flex flex={{ base: 1, md: 'auto' }} display={{ base: 'flex', md: 'flex', lg: 'none' }}>
-                    <IconButton
-                        onClick={onOpen}
-                        icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={9} h={9} />}
-                        variant={'ghost'}
-                        aria-label={'Toggle Navigation'}
-                    />
-                </Flex>
-                <Flex flex={{ base: 2, md: 'auto' }} justify={{ base: 'center', md: 'center' }} alignItems='center'>
-                    <Button variant="ghost">
-                        <Link href="/" aria-label="homepage">
-                            <Logo src="/logoPlayrightIT.png" />
-                        </Link>
-                    </Button>
-                    <Flex display={{ base: 'none', md: 'none', lg: 'flex' }}>
-                        <DesktopNav router={router} />
-                    </Flex>
-                </Flex>
-
-                <Flex pt={1} flex={{ base: 1 }} justify={{ base: 'center', md: 'end' }} >
-                    <Stack
-                        display={{ base: 'flex', md: 'flex', lg: 'flex' }}
-                        flex={{ base: 1, md: 0 }}
-                        justify={'flex-end'}
-                        direction={'row'}
-                        spacing={6}
-
-                    >
-                        <IconButton
-                            onClick={() => setOpenSearch(!OpenSearch)}
-                            icon={<Icon as={AiOutlineSearch} boxSize={{ base: '1.5rem', lg: '3rem' }} />}
-                            variant={'ghost'}
-                            aria-label={'Toggle Navigation'}
-                        />
-                    </Stack>   <Stack
-                        display={{ base: 'flex', md: 'flex', lg: 'flex' }}
-                        flex={{ base: 1, md: 0 }}
-
-                        direction={'row'}
-
-
-                    >
-                        <IconButton
-                            onClick={() => setOpenSearch(!OpenSearch)}
-                            icon={<Icon as={BiUserCircle} boxSize={{ base: '1.5rem', lg: '3rem' }} />}
-                            variant={'ghost'}
-                            aria-label={'Toggle Navigation'}
-                        />
-                    </Stack>
-
-                </Flex>
-            </Flex>
-
-            <Drawer placement={'top'} onClose={onClose} isOpen={isOpen}>
-                <DrawerOverlay />
-                <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerBody bgColor="white">
-                        <MobileNav />
-                    </DrawerBody>
-                </DrawerContent>
-            </Drawer>
-            <Collapse in={OpenSearch} animateOpacity>
-                <Box
-                    pl={{ base: 2, md: 5, lg: 'auto' }}
-                    pr={{ base: 2, md: 5, lg: 'auto' }}
-                    maxW={styles.mainMaxWidth}
-                    style={{ paddingTop: '0px !important' }}
-                    marginX="auto"
-                    mb={2}
-                    flex={{ base: 1 }}
-                    justify={{ base: 'center', md: 'end' }}
-                >
-                    <Flex>
-                        <Spacer />
-                        <IconButton
-                            onClick={() => setOpenSearch(!OpenSearch)}
-                            icon={<CloseIcon />}
-                            variant={'ghost'}
-                            aria-label={'Toggle Navigation'}
-                        />
-                    </Flex>
-
-                    <chakra.form onSubmit={formik.handleSubmit}>
-                        <InputGroup w="100%">
-                            <InputRightElement w="15%" bgColor="black">
-                                <Button
-                                    w="100%"
-                                    type="submit"
-                                    zIndex="15"
-                                    leftIcon={<AiOutlineSearch />}
-                                    colorScheme="black"
-                                    variant="solid"
-                                ></Button>
-                            </InputRightElement>
-                            <Input
-                                id="keyword"
-                                name="keyword"
-                                onChange={formik.handleChange}
-                                value={formik.values.keyword}
-                                bgColor="white"
-                                color="black"
-                                type="tel"
-                                placeholder="Search Keyword"
-                            />
-                        </InputGroup>
-                    </chakra.form>
-                </Box>
-            </Collapse>
+            <DesktopNav />
         </Box>
     );
 }
@@ -198,71 +64,127 @@ type PropsDesktopNav = {
     router?: any;
 };
 const DesktopNav = ({ router }: PropsDesktopNav) => {
-    const screenSize = useWindowSize();
-    const colors = useColorTheme();
+
+    const mobileNav = useDisclosure();
     return (
-        <Stack direction={'row'} pt="1%">
-            {NAV_ITEMS.map((navItem) => (
-                <Box
-                    as="button"
-                    key={navItem.label}
-                    pb={'2px'}
-                    style={
-                        router.asPath.includes(navItem.href)
-                            ? {
-                                borderBottom: '1.5px solid #A68340',
-                                borderTop: '0px',
-                                borderLeft: '0px',
-                                borderRight: '0px',
-                            }
-                            : {
-                                borderBottom: '0px',
-                                borderTop: '0px',
-                                borderLeft: '0px',
-                                borderRight: '0px',
-                            }
-                    }
-                >
-                    <Popover trigger={'hover'} placement={'bottom-start'}>
-                        <PopoverTrigger>
-                            <Link
-                                _focus={{
-                                    borderBottom: '0px',
-                                    borderTop: '0px',
-                                    borderLeft: '0px',
-                                    borderRight: '0px',
-                                }}
+        <>
+            <chakra.header
+
+                w="full"
+                px={{ base: 2, sm: 4 }}
+                py={4}
+                shadow="md"
+            >
+                <Flex alignItems="center" justifyContent="space-between" mx="auto">
+                    <HStack display="flex" spacing={3} alignItems="center">
+                        <Box display={{ base: "inline-flex", md: "none" }}>
+                            <IconButton
+                                display={{ base: "flex", md: "none" }}
+                                aria-label="Open menu"
+                                fontSize="20px"
+                                color="gray.800"
+                                _dark={{ color: "inherit" }}
+                                variant="ghost"
+                                icon={<AiOutlineMenu />}
+                                onClick={mobileNav.onOpen}
+                            />
+                            <Stack
+                                pos="absolute"
+                                top={0}
+                                left={0}
+                                right={0}
+                                display={mobileNav.isOpen ? "flex" : "none"}
+                                flexDirection="column"
                                 p={2}
-                                href={navItem.href ?? '#'}
-                                fontSize={
-                                    screenSize.width >= 1119 && screenSize.width <= 1202
-                                        ? '13px'
-                                        : screenSize.width >= 1077 && screenSize.width <= 1119
-                                            ? '12px'
-                                            : screenSize.width >= 1035 && screenSize.width < 1077
-                                                ? '11px'
-                                                : screenSize.width >= 986 && screenSize.width < 1035
-                                                    ? '10px'
-                                                    : screenSize.width >= 950 && screenSize.width < 986
-                                                        ? '9px'
-                                                        : screenSize.width < 950
-                                                            ? '7px'
-                                                            : '15px'
-                                }
-                                fontWeight={600}
-                                color={colors.primary}
-                                _hover={{
-                                    textDecoration: 'none',
-                                    color: useColorModeValue('gray', 'white'),
-                                }}
+                                pb={4}
+                                m={2}
+
+                                spacing={3}
+                                rounded="sm"
+                                shadow="sm"
                             >
-                                {navItem.label}
-                            </Link>
-                        </PopoverTrigger>
-                    </Popover>
-                </Box>
-            ))}
-        </Stack>
+                                <CloseButton
+                                    aria-label="Close menu"
+                                    justifySelf="self-start"
+                                    onClick={mobileNav.onClose}
+                                />
+                                <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
+                                    Dashboard
+                                </Button>
+                                <Button
+                                    w="full"
+                                    variant="solid"
+                                    colorScheme="brand"
+                                    leftIcon={<AiOutlineInbox />}
+                                >
+                                    Inbox
+                                </Button>
+                                <Button
+                                    w="full"
+                                    variant="ghost"
+                                    leftIcon={<BsFillCameraVideoFill />}
+                                >
+                                    Videos
+                                </Button>
+                            </Stack>
+                        </Box>
+                        <chakra.a
+                            href="/"
+                            title="Choc Home Page"
+                            display="flex"
+                            alignItems="center"
+                        >
+                            <Logo />
+
+                        </chakra.a>
+
+                        <HStack spacing={3} display={{ base: "none", md: "inline-flex" }}>
+                            <Button variant="ghost" leftIcon={<AiFillHome />} size="sm">
+                                Dashboard
+                            </Button>
+                            <Button
+                                variant="solid"
+                                colorScheme="brand"
+                                leftIcon={<AiOutlineInbox />}
+                                size="sm"
+                            >
+                                Inbox
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                leftIcon={<BsFillCameraVideoFill />}
+                                size="sm"
+                            >
+                                Videos
+                            </Button>
+                        </HStack>
+                    </HStack>
+                    <HStack
+                        spacing={3}
+                        display={mobileNav.isOpen ? "none" : "flex"}
+                        alignItems="center"
+                    >
+                        <InputGroup>
+                            <InputLeftElement pointerEvents="none">
+                                <AiOutlineSearch />
+                            </InputLeftElement>
+                            <Input type="tel" placeholder="Search..." />
+                        </InputGroup>
+
+                        <chakra.a
+                            p={3}
+                            color="gray.800"
+                            _dark={{ color: "inherit" }}
+                            rounded="sm"
+                            _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
+                        >
+                            <AiFillBell />
+
+                        </chakra.a>
+
+                    </HStack>
+                </Flex>
+            </chakra.header></>
     );
 };
 
