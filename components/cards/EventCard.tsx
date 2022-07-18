@@ -58,7 +58,7 @@ const EventCard = ({
             flexDirection={'column'}
             color={colors.primary}
         >
-            <Box display={{ base: 'none', lg: 'flex' }} width="100%"
+            {/* <Box display={{ base: 'none', lg: 'flex' }} width="100%"
                 height={"500px"} position='relative'>
                 <Image
                     width="100%"
@@ -70,7 +70,7 @@ const EventCard = ({
                     layout='fill'
                 // priority={true}
                 />
-            </Box>
+            </Box> */}
             <Box display={{ base: 'flex', lg: 'none' }} width="100%"
                 height={"150px"} position='relative'>
                 <Image
