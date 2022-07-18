@@ -65,37 +65,37 @@ const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props)
 
             <TrendingCard carousels={carousels} homepageContentData={homepageContentData} />
 
-            <Box px={{ base: '.6em', md: '2em' }} maxWidth={{ base: '100%', md: '1200px' }} marginX={"auto"}>
-                <>
+            {/* <Box px={{ base: '.6em', md: '2em' }} maxWidth={{ base: '100%', md: '1200px' }} marginX={"auto"}> */}
+            <>
 
-                    {listArraivel?.length > 0 ? <ListEvents events={listArraivel} /> : null}
+                {listArraivel?.length > 0 ? <ListEvents events={listArraivel} /> : null}
 
-                    <Box display={{ base: 'none', lg: 'flex' }}>
-                        <Banner
-                            mt={{ base: '20px', lg: '10px' }}
-                            pl={{ base: '0px', lg: '60px' }}
-                            pr={{ base: '0px', lg: '60px' }}
-                            banner={{ url: listBanner[0]?.props?.values?.imageUrl?.url }}
+                <Box display={{ base: 'none', lg: 'flex' }}>
+                    <Banner
+                        mt={{ base: '20px', lg: '10px' }}
+                        pl={{ base: '0px', lg: '60px' }}
+                        pr={{ base: '0px', lg: '60px' }}
+                        banner={{ url: listBanner[0]?.props?.values?.imageUrl?.url }}
 
-                        />
-                    </Box>
-                    <Box display={{ base: 'flex', lg: 'none' }}>
-                        <Banner
-                            mt={{ base: '20px', lg: '50px' }}
-                            pl={{ base: '0px', lg: '60px' }}
-                            pr={{ base: '0px', lg: '60px' }}
-                            banner={{ url: listBanner[0]?.props?.values?.imageUrl?.urlMobile }}
+                    />
+                </Box>
+                <Box display={{ base: 'flex', lg: 'none' }}>
+                    <Banner
+                        mt={{ base: '20px', lg: '50px' }}
+                        pl={{ base: '0px', lg: '60px' }}
+                        pr={{ base: '0px', lg: '60px' }}
+                        banner={{ url: listBanner[0]?.props?.values?.imageUrl?.urlMobile }}
 
-                        />
-                    </Box>
-                </>
-                {bestSeller?.length > 0 ? <ListProducts products={bestSeller} title={'Best Seller'} /> : null}
-                <HightLight carousels={carousels} homepageContentData={homepageContentData} banner={bannerHighlight[0]?.props?.values?.imageUrl?.urlMobile}
-                    flashSaleHighlight={flashSaleHighlight[0]?.props?.values?.imageUrl?.urlMobile} />
-                <ListSlideView carousels={carousels} homepageContentData={homepageContentData} />
-                {recommend?.length > 0 ? <ListProducts products={recommend} title='Recommended Products' /> : null}
-                <FeaturedBranch homeContent={homepageContentData} />
-            </Box>
+                    />
+                </Box>
+            </>
+            {bestSeller?.length > 0 ? <ListProducts products={bestSeller} title={'Best Seller'} /> : null}
+            <HightLight carousels={carousels} homepageContentData={homepageContentData} banner={bannerHighlight[0]?.props?.values?.imageUrl?.urlMobile}
+                flashSaleHighlight={flashSaleHighlight[0]?.props?.values?.imageUrl?.urlMobile} />
+            <ListSlideView carousels={carousels} homepageContentData={homepageContentData} />
+            {recommend?.length > 0 ? <ListProducts products={recommend} title='Recommended Products' /> : null}
+            <FeaturedBranch homeContent={homepageContentData} />
+            {/* </Box> */}
             <FooterHomePage homeContent={homepageFooterData} />
 
 
