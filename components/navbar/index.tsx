@@ -38,39 +38,24 @@ import { SearchKeyword } from '../../recoil/search';
 import { useRouter } from 'next/router';
 import Logo from '../Logo';
 import React, { useState, useEffect } from 'react';
-import { useUrlSocial } from '../../helpers/contentFooter';
+
 
 export default function WithSubnavigation() {
-    const { isOpen, onToggle, onClose, onOpen } = useDisclosure();
+    const { isOpen, onClose, onOpen } = useDisclosure();
     const [OpenSearch, setOpenSearch] = useState(false);
-    const [urlButton, setUrlButton] = useState({
-        facebook: 'facebook.com',
-        instagram: 'instagram.com',
-        youtube: 'youtube.com',
-        twitter: 'google.com',
-    });
 
     const [searchKeyword, setSearchKeyword] = useRecoilState(SearchKeyword);
 
     const colors = useColorTheme();
 
-    useEffect(() => {
-        useUrlSocial().then((res) => setUrlButton(res));
-    }, []);
+
 
     const router = useRouter();
 
     const onClick = () => {
         router.push(`/search`);
     };
-    const onClickSubscribe = () => {
-        isOpen ? onToggle() : null;
-        router.push(`/subscribe`);
-    };
 
-    const onClickSocial = (url: string) => {
-        window.open(url, '_blank');
-    };
 
     const formik = useFormik({
         initialValues: {
