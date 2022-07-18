@@ -71,7 +71,7 @@ const PostCard = ({ idArticle, article }: Props) => {
             // maxHeight={"640px"}
             //
             width="380px"
-            height={"45vh"}
+            height={"40vh"}
             objectFit='cover'
             layout='fill'
             // w="100%"
