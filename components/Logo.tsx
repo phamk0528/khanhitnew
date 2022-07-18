@@ -6,7 +6,7 @@ const Logo = (props: any) => {
       <Image
         src={'./logoPlayrightIT.png'}
         objectFit="contain"
-        width={{ base: "100%", lg: "50%" }}
+        width={{ base: "50%", lg: "50%" }}
         height="100%"
         alt='logo'
       />

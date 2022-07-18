@@ -26,16 +26,7 @@ import {
     DrawerBody,
     DrawerCloseButton, InputLeftElement, CloseButton
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
-import { BiUserCircle } from 'react-icons/bi';
-import styles from '../../constants/styles';
-import { useFormik } from 'formik';
-import { useRecoilState } from 'recoil';
-import useWindowSize from '../../hooks/useWindowSize';
-import useColorTheme from '../../hooks/useColorTheme';
-import { SearchKeyword } from '../../recoil/search';
-import { useRouter } from 'next/router';
 import Logo from '../Logo';
 import React, { useState, useEffect } from 'react';
 import { BsFillCameraVideoFill } from "react-icons/bs";
@@ -60,10 +51,8 @@ export default function WithSubnavigation() {
     );
 }
 
-type PropsDesktopNav = {
-    router?: any;
-};
-const DesktopNav = ({ router }: PropsDesktopNav) => {
+
+const DesktopNav = () => {
 
     const mobileNav = useDisclosure();
     return (
@@ -161,7 +150,7 @@ const DesktopNav = ({ router }: PropsDesktopNav) => {
                     </HStack>
                     <HStack
                         spacing={3}
-                        display={mobileNav.isOpen ? "none" : "flex"}
+                        display={{ base: "none", md: "flex" }}
                         alignItems="center"
                     >
                         <InputGroup>
@@ -188,116 +177,7 @@ const DesktopNav = ({ router }: PropsDesktopNav) => {
     );
 };
 
-type PropsMobileNav = {
-    onClickSubscribe?: any;
-    onClickSocial?: any;
-    urlButtonSocial?: any;
-};
-
-const MobileNav = () => {
-    return (
-        <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ lg: 'none' }}>
 
 
-            <Box mt="30px">
-                {NAV_ITEMS.map((navItem) => (
-                    <MobileNavItem key={navItem.label} {...navItem} />
-                ))}
-            </Box>
-        </Stack>
-    );
-};
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-    const { isOpen, onToggle } = useDisclosure();
-    const colors = useColorTheme();
 
-    return (
-        <Stack spacing={2} onClick={children && onToggle}>
-            <Flex
-                py={1}
-                as={Link}
-                href={href ?? '#'}
-                justify={'center'}
-                alignItems={'center'}
-                _hover={{
-                    textDecoration: 'none',
-                }}
-                textAlign="center"
-            >
-                <Text
-                    fontSize="16px"
-                    fontWeight={300}
-                    color={'white'}
-                    _hover={{
-                        textDecoration: 'none',
-                        color: useColorModeValue('gray', 'white'),
-                    }}
-                >
-                    {label}
-                </Text>
-                {children && (
-                    <Icon
-                        as={ChevronDownIcon}
-                        transition={'all .25s ease-in-out'}
-                        transform={isOpen ? 'rotate(180deg)' : ''}
-                        w={6}
-                        h={6}
-                    />
-                )}
-            </Flex>
-
-            {/* <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}
-        >
-          {children &&
-            children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
-            ))}
-        </Stack>
-      </Collapse> */}
-        </Stack>
-    );
-};
-
-interface NavItem {
-    label: string;
-    subLabel?: string;
-    children?: Array<NavItem>;
-    href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-    // {
-    //     label: `WHAT'S ON`,
-    //     href: `/whatsOn`,
-    // },
-    // {
-    //     label: 'STORE DIRECTORY',
-    //     href: '/stores',
-    // },
-    // {
-    //     label: "REWARDS",
-    //     href: "/rewards",
-    // },
-    // {
-    //     label: 'ARTS AT i12 KATONG',
-    //     href: '/arts',
-    // },
-    // {
-    //     label: 'ABOUT US',
-    //     href: '/aboutUs',
-    // },
-    // {
-    //     label: 'CONTACT US',
-    //     href: '/contactUs',
-    // },
-];
