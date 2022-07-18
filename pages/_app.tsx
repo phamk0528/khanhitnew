@@ -24,7 +24,7 @@ function Application({ Component, pageProps }: AppProps) {
 
 
 
-                    {/* <Fonts /> */}
+                    <Fonts />
 
                     <Component {...pageProps} />
                 </Layout>
