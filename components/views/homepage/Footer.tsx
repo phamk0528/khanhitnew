@@ -37,7 +37,18 @@ const FooterHomePage = ({ homeContent }: Props) => {
 
 
                     <Box width="100%" mt='15px' bgColor="rgb(236, 236, 236);" display={'flex'} flexDir={{ base: 'column', md: 'row' }} justifyContent={'center'} maxWidth='1340px'>
-                        <Box height={{ base: "30vh", md: '200px' }} mt='15px' flex={{ base: 'unset', md: 1 }} marginTop="5px" position='relative'>
+                        <Box height={{ base: "30vh", md: '200px' }} mt='15px' flex={1} marginTop="5px" position='relative' display={{ base: 'none', md: 'flex' }}>
+                            <Image
+                                width="100%"
+                                height={"25vh"}
+                                src={banner?.props?.values?.imageUrl?.urlMobile?.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=500&quality=100'}
+                                alt={'Photo of ' + banner?.props?.values?.imageUrl?.urlMobile}
+                                objectFit="contain"
+
+                                layout='fill'
+                            />
+                        </Box>
+                        <Box height={{ base: "30vh", md: '200px' }} mt='15px' marginTop="5px" position='relative' display={{ base: 'flex', md: 'none' }}>
                             <Image
                                 width="100%"
                                 height={"25vh"}
