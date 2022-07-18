@@ -3,7 +3,7 @@ import React from 'react';
 import ListEvents from '../components/views/homepage/ListEvents';
 
 import { Box } from '@chakra-ui/react';
-// import Banner from '../components/banner/Banner';
+import Banner from '../components/banner/Banner';
 import { GetStaticProps } from 'next';
 import { useGetHomePage, useGetProductByCollection } from '../helpers/carousels';
 import { NextSeo } from 'next-seo';
@@ -22,7 +22,7 @@ const HightLight = dynamic(() => import('../components/views/homepage/HighLight'
 const ListSlideView = dynamic(() => import('../components/views/homepage/ListSlideView'))
 const FeaturedBranch = dynamic(() => import('../components/views/homepage/FeatureBranch'))
 const FooterHomePage = dynamic(() => import('../components/views/homepage/Footer'))
-const Banner = dynamic(() => import('../components/banner/Banner'))
+// const Banner = dynamic(() => import('../components/banner/Banner'))
 
 type Props = {
     featured?: any;

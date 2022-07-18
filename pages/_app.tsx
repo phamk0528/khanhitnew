@@ -5,11 +5,6 @@ import { Fonts } from '../fonts';
 import { Chakra } from '../Chakra';
 import Layout from '../components/Layout';
 import React, { useEffect, useState } from 'react';
-
-import { css } from '@emotion/core';
-
-
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";;
 import { RecoilRoot } from 'recoil';
