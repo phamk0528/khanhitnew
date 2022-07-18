@@ -14,7 +14,7 @@ import HightLight from '../components/views/homepage/HighLight';
 import ListSlideView from '../components/views/homepage/ListSlideView';
 import FeaturedBranch from '../components/views/homepage/FeatureBranch';
 import FooterHomePage from '../components/views/homepage/Footer';
-import dynamic from 'next/dynamic'
+
 import TrendingCard from '../components/views/homepage/Trending';
 
 // const TrendingCard = dynamic(() => import('../components/views/homepage/Trending'))
@@ -61,32 +61,6 @@ const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props)
 
     return (
         <>
-            <NextSeo
-                title="Home"
-                description="This is homepage "
-                canonical="https://www.canonicalurl.ie/"
-                openGraph={{
-                    url: 'https://www.canonicalurl.ie/',
-                    title: 'Home',
-                    description: 'This is homepage',
-                    images: [
-                        {
-                            url: '/logoPlayrightIT.PNG',
-                            width: 800,
-                            height: 600,
-                            alt: 'Og Image Alt',
-                        },
-                        {
-                            url: '/logoPlayrightIT.PNG',
-                            width: 900,
-                            height: 800,
-                            alt: 'Og Image Alt Second',
-                        },
-                        { url: '/logoPlayrightIT.PNG' },
-                        { url: '/logoPlayrightIT.PNG' },
-                    ],
-                }}
-            />
 
             <TrendingCard carousels={carousels} homepageContentData={homepageContentData} />
 
@@ -123,7 +97,7 @@ const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props)
             </Box>
             <FooterHomePage homeContent={homepageFooterData} />
 
-            {/* <ComingSoon /> */}
+
         </>
     );
 };
