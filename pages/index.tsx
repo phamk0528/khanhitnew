@@ -103,7 +103,7 @@ const IndexPage = ({ carousels, homepageContent, recommend, bestSeller }: Props)
     );
 };
 
-export const getServerSideProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
 
         let homepageContent = await useGetHomePage()
@@ -118,7 +118,7 @@ export const getServerSideProps = async (context: any) => {
                 bestSeller: bestSeller,
                 recommend: recommend
             },
-
+            revalidate: 100,
         };
     } catch (err: any) {
         console.log('err.message', err);
