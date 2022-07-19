@@ -34,14 +34,11 @@ const Banner = ({
     base: "column",
     md: column ? "column" : "row",
   });
-  const onClickEvent = () => {
-    window.open(url, "_blank");
-  };
 
 
   return (
     <Card
-      onClick={() => url ? onClickEvent() : console.log('No URL')}
+
       justifyContent="flex-start"
       cursor="pointer"
       overflow="hidden"
