@@ -6,8 +6,6 @@ import { Box } from '@chakra-ui/react';
 import Banner from '../components/banner/Banner';
 import { GetStaticProps } from 'next';
 import { useGetHomePage, useGetProductByCollection } from '../helpers/carousels';
-import { NextSeo } from 'next-seo';
-
 
 import ListProducts from '../components/views/homepage/ListProductCard';
 import HightLight from '../components/views/homepage/HighLight';
