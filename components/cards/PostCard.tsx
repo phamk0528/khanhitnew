@@ -48,7 +48,7 @@ const PostCard = ({ idArticle, article }: Props) => {
 
           <Image
             // objectFit="fill"
-            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=350&quality=90')}
+            src={getUrlImage(article.hero_mobile.url.replace('https://playitright.s3-ap-southeast-1.amazonaws.com/', 'https://quocbcx-1c878.kxcdn.com/') + '?width=300&quality=80')}
             // maxHeight={"640px"}
             //
             width="350px"
