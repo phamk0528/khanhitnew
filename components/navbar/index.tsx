@@ -91,7 +91,7 @@ const DesktopNav = () => {
                             flex={1}
 
                         >
-                            <Link href="/" prefetch={false}>  <Logo /></Link>
+                            <Logo />
 
 
                         </Box>
