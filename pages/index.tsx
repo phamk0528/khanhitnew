@@ -92,16 +92,16 @@ const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArra
 export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
 
-        let homepageContent = await useGetHomePage()
-        let bestSeller = await useGetProductByCollection(10)
-        let recommend = await useGetProductByCollection(13)
+        let homepageContent = useGetHomePage()
+        let bestSeller = useGetProductByCollection(10)
+        let recommend = useGetProductByCollection(13)
+
+        let result = await Promise.all([homepageContent, bestSeller, recommend])
 
 
+        const homepageContentData = _(result[0]?.homepage_content)
 
-
-        const homepageContentData = _(homepageContent?.homepage_content)
-
-        const homepageFooterData = _(homepageContent?.footer)
+        const homepageFooterData = _(result[0]?.footer)
         const listContent = homepageContentData?.filter((x: any) => {
             return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
         })
@@ -128,8 +128,8 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
                 listBanner: listBanner,
                 bannerHighlight: bannerHighlight,
                 flashSaleHighlight: flashSaleHighlight,
-                bestSeller: bestSeller,
-                recommend: recommend
+                bestSeller: result[1],
+                recommend: result[2]
             },
             revalidate: 60,
         };
