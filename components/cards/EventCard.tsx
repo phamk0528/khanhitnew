@@ -36,16 +36,12 @@ const EventCard = ({
 
 
     const router = useRouter();
-    const onClickEvent = () => {
-        router.push(`/events/${idEvent}`);
-        window.scrollTo(0, 0);
-    };
 
 
     return (
 
         <Card
-            onClick={() => onClickEvent()}
+
             justifyContent="flex-start"
             cursor="pointer"
             onMouseEnter={() => setHover(true)}
