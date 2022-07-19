@@ -37,6 +37,4 @@ function Application({ Component, pageProps }: AppProps) {
     );
 }
 
-export { getServerSideProps } from '../Chakra';
-
 export default Application;
