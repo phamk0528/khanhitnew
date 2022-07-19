@@ -35,7 +35,7 @@ const Layout: React.FC<Props> = ({ children, title = 'Modern News', ...props }) 
                     marginX="auto"
                     {...props}
                 >
-                    <ToastContainer autoClose={2000} />
+
                     {children}
                 </Box>
                 {/* <Footer /> */}
