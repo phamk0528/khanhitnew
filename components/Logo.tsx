@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import Image from 'next/image'
 
 const Logo = (props: any) => {
   return (
@@ -7,8 +8,8 @@ const Logo = (props: any) => {
       <Image
         src={'https://quocbcx-1c878.kxcdn.com/assets/1/content/Logo-image-desktop-HUP.png?width=250&quality=80'}
         objectFit="contain"
-        width={{ base: "80%", lg: "70%" }}
-        height="100%"
+        width={"150px"}
+        height="150px"
         alt='logo'
       />
     </Box>

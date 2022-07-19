@@ -57,7 +57,7 @@ const DesktopNav = () => {
 
             >
                 <Flex alignItems="center" justifyContent="space-between" mx="auto">
-                    <HStack display="flex" spacing={3} alignItems="center">
+                    <HStack display="flex" flex={2} spacing={3} alignItems="center">
                         <Box display={{ base: "inline-flex", md: "none" }} flex={0.5}>
                             <IconButton
                                 display={{ base: "flex", md: "none" }}
@@ -78,7 +78,7 @@ const DesktopNav = () => {
                             display="flex"
                             alignItems="center"
                             flex={1}
-
+                            w="100%"
                         >
                             <Logo />
 
@@ -93,6 +93,7 @@ const DesktopNav = () => {
                         spacing={3}
                         display={{ base: "none", md: "flex" }}
                         alignItems="center"
+
                     >
                         <InputGroup>
                             <InputLeftElement pointerEvents="none">
@@ -109,7 +110,7 @@ const DesktopNav = () => {
                             _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
                             display="flex"
                             flexDir="row"
-                            aliginItems='center'
+                            alignItems='center'
                             minW="150px"
                         >
                             <AiOutlineUser size='25px' />
@@ -131,7 +132,7 @@ const DesktopNav = () => {
                     </HStack>
 
                     <Box
-                        spacing={0}
+
                         display={{ base: "flex", md: "none" }}
                         alignItems="center"
                         flex={0.5}
@@ -145,7 +146,7 @@ const DesktopNav = () => {
                             _hover={{ color: "gray.800", _dark: { color: "gray.600" } }}
                             display="flex"
                             flexDir="row"
-                            aliginItems='center'
+                            alignItems='center'
 
                         >
                             <AiOutlineUser size='25px' />
