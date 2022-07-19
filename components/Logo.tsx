@@ -12,6 +12,7 @@ const Logo = (props: any) => {
         height="150px"
         layout="fill"
         alt='logo'
+        priority={true}
       />
     </Box>
   );
