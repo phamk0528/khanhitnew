@@ -1,6 +1,6 @@
 import { Box, Heading, SimpleGrid, Text, Icon } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
-// import Image from '../../Image';
+
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import Image from 'next/image'
 
@@ -12,7 +12,7 @@ const FooterHomePage = ({ homeContent }: Props) => {
 
     const banner = homeContent?.find((x: any) => x?.id === "Ptb/IreN")
     const footer = homeContent?.find((x: any) => x?.id === "1tC7w49W")
-    console.log("banner", banner)
+
     const contentFooter = [{
         title: 'About Us',
         listChild: ['How We Play The Game', 'Playitright Cases', 'Quality Assurance']

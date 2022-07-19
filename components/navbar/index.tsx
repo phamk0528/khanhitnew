@@ -32,8 +32,7 @@ import React, { useState, useEffect } from 'react';
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import {
     AiOutlineMenu,
-    AiFillHome,
-    AiOutlineInbox,
+
     AiOutlineUser,
     AiOutlineSearch,
     AiOutlineShoppingCart,

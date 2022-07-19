@@ -4,7 +4,7 @@ import '../styles/index.css';
 import { Fonts } from '../fonts';
 import { Chakra } from '../Chakra';
 import Layout from '../components/Layout';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,7 +24,7 @@ function Application({ Component, pageProps }: AppProps) {
         <RecoilRoot>
             <DefaultSeo {...SEO} />
             <Chakra cookies={pageProps.cookies}>
-                <Layout title="Home | Modern News" px={{ base: '0px', md: '0px' }} >
+                <Layout title="Home " px={{ base: '0px', md: '0px' }} >
 
                     <Fonts />
 

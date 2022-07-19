@@ -1,5 +1,5 @@
-import { Center, Box, Heading, Button, Icon, Divider, SimpleGrid } from '@chakra-ui/react';
-import React, { useRef } from 'react';
+import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import React from 'react';
 
 import EventCard from '../../cards/EventCard';
 

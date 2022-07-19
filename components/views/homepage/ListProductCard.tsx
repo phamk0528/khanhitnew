@@ -18,8 +18,6 @@ type Props = {
 const ListProducts = ({ products, title }: Props) => {
 
     const screenSize = useWindowSize();
-    const { hoverProps, isHovered } = useHover({});
-
 
     function SampleNextArrow(props: any) {
         const { onClick } = props;
@@ -153,7 +151,7 @@ const ListProducts = ({ products, title }: Props) => {
                         ))}
                     </SimpleGrid>
                 ) : (
-                    <Box {...hoverProps}>
+                    <Box>
                         <Slider {...settings}>
                             {products?.map((product: any) => (
                                 <Box pt={{ base: '5%', lg: '10%' }} px="3px" key={'listEvent' + product.id}>
