@@ -56,6 +56,7 @@ const PostCard = ({ idArticle, article }: Props) => {
             objectFit='cover'
             layout='fill'
             // w="100%"
+            placeholder="blur"
             priority={true}
             alt='banner'
           />
@@ -71,6 +72,7 @@ const PostCard = ({ idArticle, article }: Props) => {
             objectFit='fill'
             layout='fill'
             // w="100%"
+            placeholder="blur"
             priority={screenSize.width > 500 ? true : false}
             alt='banner'
           />
