@@ -1,5 +1,5 @@
 import { Box, Icon, Text } from '@chakra-ui/react';
-import React,   from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import useColorTheme from '../../../hooks/useColorTheme';
 

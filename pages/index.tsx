@@ -89,12 +89,14 @@ const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArra
     );
 };
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getServerSideProps = async (context: any) => {
     try {
 
         let homepageContent = await useGetHomePage()
         let bestSeller = await useGetProductByCollection(10)
         let recommend = await useGetProductByCollection(13)
+
+
 
 
         const homepageContentData = _(homepageContent?.homepage_content)
@@ -128,8 +130,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
                 flashSaleHighlight: flashSaleHighlight,
                 bestSeller: bestSeller,
                 recommend: recommend
-            },
-            revalidate: 60,
+            }
         };
     } catch (err: any) {
         console.log('err.message', err);
