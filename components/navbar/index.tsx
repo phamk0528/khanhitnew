@@ -37,6 +37,7 @@ import {
     AiOutlineSearch,
     AiOutlineShoppingCart,
 } from "react-icons/ai";
+import Link from 'next/link'
 
 
 export default function WithSubnavigation() {
@@ -81,16 +82,19 @@ const DesktopNav = () => {
                             />
 
                         </Box>
-                        <chakra.a
-                            href="/"
-                            title="Choc Home Page"
+
+                        <Box
+
+
                             display="flex"
                             alignItems="center"
                             flex={1}
-                        >
-                            <Logo />
 
-                        </chakra.a>
+                        >
+                            <Link href="/" prefetch={false}>  <Logo /></Link>
+
+
+                        </Box>
 
 
 
@@ -108,7 +112,7 @@ const DesktopNav = () => {
                             <Input type="tel" placeholder="Search..." />
                         </InputGroup>
 
-                        <chakra.a
+                        <Box
                             p={3}
                             color="gray.800"
                             _dark={{ color: "inherit" }}
@@ -121,9 +125,9 @@ const DesktopNav = () => {
                         >
                             <AiOutlineUser size='25px' />
                             <Text fontSize='15px' pt="5px">Login/ Register</Text>
-                        </chakra.a>
+                        </Box>
 
-                        <chakra.a
+                        <Box
                             p={3}
                             color="gray.800"
                             _dark={{ color: "inherit" }}
@@ -133,7 +137,7 @@ const DesktopNav = () => {
                         >
                             <AiOutlineShoppingCart size='25px' />
 
-                        </chakra.a>
+                        </Box>
 
                     </HStack>
 
@@ -144,7 +148,7 @@ const DesktopNav = () => {
                         flex={0.5}
                     >
 
-                        <chakra.a
+                        <Box
                             p={3}
                             color="gray.800"
                             _dark={{ color: "inherit" }}
@@ -157,9 +161,9 @@ const DesktopNav = () => {
                         >
                             <AiOutlineUser size='25px' />
 
-                        </chakra.a>
+                        </ Box>
 
-                        <chakra.a
+                        <Box
                             p={3}
                             color="gray.800"
                             _dark={{ color: "inherit" }}
@@ -169,7 +173,7 @@ const DesktopNav = () => {
                         >
                             <AiOutlineShoppingCart size='25px' />
 
-                        </chakra.a>
+                        </Box>
 
                     </Box>
                 </Flex>
