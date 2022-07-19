@@ -27,7 +27,7 @@ const ColorCard = ({ colors }: ColorProps) => {
                     <Flex alignItems="center" justifyContent="space-between" px={1} bg="white" roundedBottom="lg">
                         <HStack spacing="10px">
                             {colors.map((color: string) => (
-                                <Box w="25px" key={color} h="25px" borderRadius={30} bg={color} borderColor='black' borderWidth={'1px'} />
+                                <Box w="25px" key={color} h="25px" borderRadius={30} bg={color} borderColor='black' borderWidth={'1px'} color={color}>..</Box>
                             ))}
                         </HStack>
                     </Flex>
