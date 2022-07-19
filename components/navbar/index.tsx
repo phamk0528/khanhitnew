@@ -4,32 +4,21 @@ import {
     Text,
     IconButton,
     InputGroup,
-    InputRightElement,
-    Input,
-    Stack,
-    Collapse,
-    Icon,
 
-    Popover,
-    PopoverTrigger,
-    useColorModeValue,
-    useBreakpointValue,
+    Input,
+
     useDisclosure,
-    Spacer,
-    Button,
+
+
     chakra,
-    Image,
+
     HStack,
-    Drawer,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerBody,
-    DrawerCloseButton, InputLeftElement, CloseButton
+    InputLeftElement
 } from '@chakra-ui/react';
 
 import Logo from '../Logo';
-import React, { useState, useEffect } from 'react';
-import { BsFillCameraVideoFill } from "react-icons/bs";
+import React from 'react';
+
 import {
     AiOutlineMenu,
 
@@ -37,7 +26,7 @@ import {
     AiOutlineSearch,
     AiOutlineShoppingCart,
 } from "react-icons/ai";
-import Link from 'next/link'
+
 
 
 export default function WithSubnavigation() {

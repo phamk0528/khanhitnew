@@ -8,7 +8,13 @@
         "build:production": "cp .env.production .env.local && next build",
         "build:staging": "cp .env.staging .env.local && next build",
         "dev:staging": "cp .env.staging .env.local && next dev",
+        "find:unused": "next-unused",
         "type-check": "tsc"
+    },
+    "next-unused": {
+        "include": [
+            "pages"
+        ]
     },
     "dependencies": {
         "@chakra-ui/icons": "^1.0.5",
@@ -42,6 +48,7 @@
         "@types/node": "^12.12.21",
         "@types/react": "^16.9.16",
         "@types/react-dom": "^16.9.4",
+        "next-unused": "^0.0.6",
         "prettier": "2.3.2",
         "typescript": "4.0"
     },
