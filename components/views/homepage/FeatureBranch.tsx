@@ -7,10 +7,33 @@ type Props = {
 };
 
 const FeaturedBranch = ({ homeContent }: Props) => {
-    const carousel = homeContent?.filter((x: any) => x?.parent?.id === "xnni6pa9" || x?.parent?.id === "hqAQWOU0" || x?.parent?.id === "Ut+/m8d6")
-    const banner = homeContent?.filter((x: any) => x?.id === "23zWpyP3" || x?.id === "TxlyjU6G" || x?.id === "b9FQ6ZGF")
-    const textSumary = homeContent?.filter((x: any) => x?.id === "Gx1qr9kF" || x?.id === "Av7mFchf" || x?.id === "YZQxZbze")
-    const textDescription = homeContent?.filter((x: any) => x?.id === "gVyXapsF" || x?.id === "EMKBRfmD" || x?.id === "rqen/8s+")
+    // const carousel = homeContent?.filter((x: any) => x?.parent?.id === "xnni6pa9" || x?.parent?.id === "hqAQWOU0" || x?.parent?.id === "Ut+/m8d6")
+    // const banner = homeContent?.filter((x: any) => x?.id === "23zWpyP3" || x?.id === "TxlyjU6G" || x?.id === "b9FQ6ZGF")
+    // const textSumary = homeContent?.filter((x: any) => x?.id === "Gx1qr9kF" || x?.id === "Av7mFchf" || x?.id === "YZQxZbze")
+    // const textDescription = homeContent?.filter((x: any) => x?.id === "gVyXapsF" || x?.id === "EMKBRfmD" || x?.id === "rqen/8s+")
+
+    const carousel = []
+    const banner = []
+    const textSumary = []
+    const textDescription = []
+
+    for (let index = 0; index < homeContent.length; index++) {
+        const element = homeContent[index];
+        if (element?.parent?.id === "xnni6pa9" || element?.parent?.id === "hqAQWOU0" || element?.parent?.id === "Ut+/m8d6") {
+            carousel.push(element)
+        } else if (element?.id === "23zWpyP3" || element?.id === "TxlyjU6G" || element?.id === "b9FQ6ZGF") {
+            banner.push(element)
+        } else if (element?.id === "Gx1qr9kF" || element?.id === "Av7mFchf" || element?.id === "YZQxZbze") {
+            textSumary.push(element)
+
+        } else if (element?.id === "gVyXapsF" || element?.id === "EMKBRfmD" || element?.id === "rqen/8s+") {
+            textDescription.push(element)
+
+        }
+
+    }
+
+
     console.log("carousel", banner)
     return (
         <>
