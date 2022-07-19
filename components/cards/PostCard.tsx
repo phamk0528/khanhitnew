@@ -123,7 +123,7 @@ const PostCard = ({ idArticle, article }: Props) => {
             <Center pt={{ base: 0, md: 0, lg: 2 }} mt="15vh">
               <chakra.h1
                 fontFamily="Arial"
-                data-aos="fade-left"
+
                 fontSize={{ base: "2xl", md: "3xl" }}
                 fontWeight="bold"
               >
@@ -135,7 +135,7 @@ const PostCard = ({ idArticle, article }: Props) => {
                 textAlign="left"
                 alignItems="center"
                 py={3}
-                data-aos="fade-left"
+
               >
                 <chakra.h2 fontWeight="bold" fontSize="lg">
                   {article.summary}
