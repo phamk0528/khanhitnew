@@ -24,12 +24,12 @@ const ColorCard = ({ colors }: ColorProps) => {
                             {`AVAILABLE COLORS`}
                         </chakra.h1>
                     </Box>
-                    <Flex alignItems="center" justifyContent="space-between" px={1} bg="white" roundedBottom="lg">
-                        <HStack spacing="10px">
-                            {colors.map((color: string) => (
-                                <Box w="25px" key={color} h="25px" borderRadius={30} bg={color} borderColor='black' borderWidth={'1px'} color={color}>..</Box>
-                            ))}
-                        </HStack>
+                    <Flex alignItems="center" justifyContent="start" bg="white" roundedBottom="lg" flexDirection={'row'}>
+
+                        {colors.map((color: string) => (
+                            <Box w="25px" key={color} h="25px" ml={'2px'} borderRadius={30} bg={color} borderColor='black' borderWidth={'1px'} color={color}>..</Box>
+                        ))}
+
                     </Flex>
                 </>
             ) : null}
