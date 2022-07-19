@@ -14,7 +14,7 @@ import FeaturedBranch from '../components/views/homepage/FeatureBranch';
 import FooterHomePage from '../components/views/homepage/Footer';
 
 import TrendingCard from '../components/views/homepage/Trending';
-import _ from 'lodash';
+import _ from 'lodash/values';
 
 // const TrendingCard = dynamic(() => import('../components/views/homepage/Trending'))
 // const ListProducts = dynamic(() => import('../components/views/homepage/ListProductCard'))
@@ -97,9 +97,9 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         let recommend = await useGetProductByCollection(13)
 
 
-        const homepageContentData = _.values(homepageContent?.homepage_content)
+        const homepageContentData = _(homepageContent?.homepage_content)
 
-        const homepageFooterData = _.values(homepageContent?.footer)
+        const homepageFooterData = _(homepageContent?.footer)
         const listContent = homepageContentData?.filter((x: any) => {
             return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
         })
@@ -129,7 +129,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
                 bestSeller: bestSeller,
                 recommend: recommend
             },
-            revalidate: 100,
+            revalidate: 60,
         };
     } catch (err: any) {
         console.log('err.message', err);
