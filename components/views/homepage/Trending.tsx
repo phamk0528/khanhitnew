@@ -5,7 +5,7 @@ import useColorTheme from '../../../hooks/useColorTheme';
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import Slider from 'react-slick';
-import useWindowSize from '../../../hooks/useWindowSize';
+
 
 type Props = {
   margin?: number;
@@ -15,7 +15,7 @@ type Props = {
 };
 const TrendingCard = ({ homepageContentData }: Props) => {
 
-  const screenSize = useWindowSize();
+
 
   const announ = homepageContentData?.find((x: any) => x?.type === "TextGroupView")
   const carousel = homepageContentData?.find((x: any) => x?.type === "CarouselAnimationView")?.props?.values?.list?.map((x: any) => {
@@ -75,33 +75,20 @@ const TrendingCard = ({ homepageContentData }: Props) => {
   }
   const colors = useColorTheme();
   const settings =
-    screenSize.width >= 750
-      ? {
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        arrows: true,
-        speed: 500,
-        autoplaySpeed: 5000,
-        cssEase: 'linear',
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-      }
-      : {
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        swipeToSlide: true,
-        autoplay: false,
-        speed: 500,
-        arrows: true,
-        autoplaySpeed: 3000,
-        cssEase: 'linear',
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-      };
+  {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: true,
+    speed: 500,
+    autoplaySpeed: 5000,
+    cssEase: 'linear',
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+
   return (
     <>
       <Box bg='red.500' alignItems={'center'} display='flex' py="7px" mb="20px" >
