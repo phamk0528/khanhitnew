@@ -114,7 +114,7 @@ const ProductCard = ({ product, heightTitle }: Props) => {
                 </Box>
                 <Box pt={0}>
 
-                    <ColorCard colors={colors} />
+                    {/* <ColorCard colors={colors} /> */}
                     <Box px={1} py={2}>
 
                         <Text
