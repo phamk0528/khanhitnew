@@ -98,33 +98,56 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
         let result = await Promise.all([homepageContent, bestSeller, recommend])
 
+        const listContent = []
+        const listArraivel = []
+        const listBanner = []
+        const bannerHighlight = []
+        const flashSaleHighlight = []
 
         const homepageContentData = _(result[0]?.homepage_content)
 
         const homepageFooterData = _(result[0]?.footer)
-        const listContent = homepageContentData?.filter((x: any) => {
-            return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
-        })
-        const listArraivel = homepageContentData?.filter((x: any) => {
-            return x?.id === "YferTLSC" || x?.id === "jGekaT+o"
-        })?.map((x: any, i: any) => { return { ...x, textContent: listContent[+i]?.props?.values?.text } })
 
-        const listBanner = homepageContentData?.filter((x: any) => {
-            return x?.id === "4g+Chi4C"
-        })
-        const bannerHighlight = homepageContentData?.filter((x: any) => {
-            return x?.id === "81QE/qtW"
-        })
-        const flashSaleHighlight = homepageContentData?.filter((x: any) => {
-            return x?.id === "KpVRNCGX"
-        })
+        for (let index = 0; index < homepageContentData.length; index++) {
+            const element = homepageContentData[index];
+            if (element?.id === "Y12VF8Q9" || element?.id === "qq1ON/UD") {
+                listContent.push(element)
+            } else if (element?.id === "YferTLSC" || element?.id === "jGekaT+o") {
+                listArraivel.push(element)
+            } else if (element?.id === "4g+Chi4C") {
+                listBanner.push(element)
 
+            } else if (element?.id === "81QE/qtW") {
+                bannerHighlight.push(element)
+
+            } else if (element?.id === "KpVRNCGX") {
+                flashSaleHighlight.push(element)
+            }
+
+        }
+
+        // const listContent = homepageContentData?.filter((x: any) => {
+        //     return x?.id === "Y12VF8Q9" || x?.id === "qq1ON/UD"
+        // })
+        // const listArraivel = homepageContentData?.filter((x: any) => {
+        //     return x?.id === "YferTLSC" || x?.id === "jGekaT+o"
+        // })?.map((x: any, i: any) => { return { ...x, textContent: listContent[+i]?.props?.values?.text } })
+
+        // const listBanner = homepageContentData?.filter((x: any) => {
+        //     return x?.id === "4g+Chi4C"
+        // })
+        // const bannerHighlight = homepageContentData?.filter((x: any) => {
+        //     return x?.id === "81QE/qtW"
+        // })
+        // const flashSaleHighlight = homepageContentData?.filter((x: any) => {
+        //     return x?.id === "KpVRNCGX"
+        // })
         return {
             props: {
 
                 homepageContentData: homepageContentData,
                 homepageFooterData: homepageFooterData,
-                listArraivel: listArraivel,
+                listArraivel: listArraivel?.map((x: any, i: any) => { return { ...x, textContent: listContent[+i]?.props?.values?.text } }),
                 listBanner: listBanner,
                 bannerHighlight: bannerHighlight,
                 flashSaleHighlight: flashSaleHighlight,
