@@ -26,9 +26,10 @@ function Application({ Component, pageProps }: AppProps) {
             <Chakra cookies={pageProps.cookies}>
                 <Layout title="Home " px={{ base: '0px', md: '0px' }} >
 
-                    <Fonts />
+
 
                     <Component {...pageProps} />
+                    <Fonts />
                 </Layout>
 
             </Chakra>
