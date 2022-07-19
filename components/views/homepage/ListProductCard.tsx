@@ -1,12 +1,11 @@
-import { Box, Heading, Button, Center, Icon, Divider, SimpleGrid } from '@chakra-ui/react';
-import React, { useRef } from 'react';
-import useColorTheme from '../../../hooks/useColorTheme';
-import DealCard from '../../cards/DealCard';
+import { Box, Heading, Icon } from '@chakra-ui/react';
+import React from 'react';
+
 import Slider from 'react-slick';
 import useWindowSize from '../../../hooks/useWindowSize';
-import { useRouter } from 'next/router';
+
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { useHover } from '../../../hooks/useHover';
+
 import ProductCard from '../../cards/ProductCard';
 type Props = {
     products: any;
