@@ -3,9 +3,6 @@ import Head from 'next/head';
 import { Box, BoxProps } from '@chakra-ui/react';
 import Navbar from './navbar';
 import styles from '../constants/styles';
-
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import useColorTheme from '../hooks/useColorTheme';
 
 type Props = {
