@@ -68,7 +68,7 @@ const EventCard = ({
                     // objectFit="cover"
                     layout='fill'
                     priority={true}
-                    placeholder="blur"
+
                 />
             </Box>
             <Box display={{ base: 'none', lg: 'flex' }} width="100%"
@@ -81,7 +81,6 @@ const EventCard = ({
                     alt={'Photo of ' + event?.title}
                     objectFit="contain"
                     layout='fill'
-                    placeholder="blur"
                 // priority={true}
                 />
             </Box>
