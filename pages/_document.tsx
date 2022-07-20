@@ -15,7 +15,7 @@ export default class Document extends NextDocument {
 
                 </Head>
                 <body>
-                    Initializing the awesome.
+
                     <Main />
                     <NextScript />
                 </body>

@@ -22,6 +22,7 @@ function Application({ Component, pageProps }: AppProps) {
     return (
 
         <RecoilRoot>
+
             <DefaultSeo {...SEO} />
             <Chakra cookies={pageProps.cookies}>
                 <Layout title="Home " px={{ base: '0px', md: '0px' }} >
