@@ -8,7 +8,7 @@ export const useGetAllCarousels = async () => {
                 'User-Agent': '*',
             },
         });
-        console.log('statusCode-Carousel:', data);
+
         return await data.json();
     } catch (error) {
         console.log('error', error);

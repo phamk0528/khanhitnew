@@ -8,24 +8,15 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import ProductCard from '../../cards/ProductCard';
 type Props = {
-    isRecommend?: any;
+    products: any;
     margin?: number;
     containerHeight?: number;
     title: string
 };
-import useSWR from "swr";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const ListProducts = ({ title }: Props) => {
-
-    const { data: products, error: errorBestSeller } = useSWR(
-        title === 'Best Seller' ? "https://api.playitright.com/products?collection=13" : "https://api.playitright.com/products?collection=10",
-        fetcher
-    );
-
+const ListProducts = ({ products, title }: Props) => {
 
     const screenSize = useWindowSize();
-
 
     function SampleNextArrow(props: any) {
         const { onClick } = props;
@@ -91,7 +82,7 @@ const ListProducts = ({ title }: Props) => {
     let height = products?.map((item: any) => {
         return item.name.length;
     });
-    console.log("height", height)
+
     var largest = Math.max.apply(Math, height);
     return (
         <>
