@@ -34,6 +34,7 @@ const ListSlideView = ({ homepageContentData, }: Props) => {
 
         }
     })
+
     function SampleNextArrow(props: any) {
         const { onClick } = props;
         return (

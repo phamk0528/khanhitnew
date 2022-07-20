@@ -1,7 +1,7 @@
 
 import type { AppProps /*, AppContext */ } from 'next/app';
 import '../styles/index.css';
-
+import { Fonts } from '../fonts';
 import { Chakra } from '../Chakra';
 import Layout from '../components/Layout';
 import React from 'react';
