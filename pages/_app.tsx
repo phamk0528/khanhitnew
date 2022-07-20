@@ -30,7 +30,7 @@ function Application({ Component, pageProps }: AppProps) {
 
 
                     <Component {...pageProps} />
-                    {/* <Fonts /> */}
+                    <Fonts />
                 </Layout>
 
             </Chakra>
