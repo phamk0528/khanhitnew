@@ -51,7 +51,7 @@ const DesktopNav = () => {
             <chakra.header
 
                 w="full"
-                px={{ base: 2, sm: "20%" }}
+                px={{ base: 2, sm: "15%" }}
                 py={4}
 
 
