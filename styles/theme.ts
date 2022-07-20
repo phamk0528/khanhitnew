@@ -33,23 +33,5 @@ export default {
         darkBlue: colors.secondary.light,
         background: colors.background.light,
         white: '#fff',
-        youtube: {
-            100: 'rgba(255,0,0,.6)',
-            200: 'rgba(255,0,0,.7)',
-            300: 'rgba(255,0,0,.8)',
-            400: 'rgba(255,0,0,.9)',
-            500: 'rgba(255,0,0,1)',
-        },
-        instagram: {
-            100: 'rgba(225,48,108,.6)',
-            200: 'rgba(225,48,108,.7)',
-            300: 'rgba(225,48,108,.8)',
-            400: 'rgba(225,48,108,.9)',
-            500: 'rgba(225,48,108,1)',
-        },
-    },
-    fonts: {
-        heading: 'Arial, sans-serif',
-        body: 'Arial, sans-serif',
     },
 };
