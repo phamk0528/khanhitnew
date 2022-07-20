@@ -8,7 +8,7 @@ export const Fonts = () => (
     font-family: 'slick';
     font-style: normal;
             font-weight: 400;
-            src: local('Pacifico Regular'), local('/fonts/arial.ttf') format('ttf');
+            src: local('Pacifico Regular'), local('/fonts/roboto-regular.woff2') format('woff2');
             font-display: swap;
         }
     `}
