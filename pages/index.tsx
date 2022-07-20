@@ -24,6 +24,10 @@ import _ from 'lodash/values';
 // const FooterHomePage = dynamic(() => import('../components/views/homepage/Footer'))
 // const Banner = dynamic(() => import('../components/banner/Banner'))
 
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 type Props = {
     featured?: any;
     banners?: any;
@@ -43,8 +47,22 @@ type Props = {
     homepageFooterData: any
 };
 
-const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArraivel, listBanner, bannerHighlight, recommend, bestSeller, homepageContentData }: Props) => {
+const IndexPage = ({ carousels, flashSaleHighlight, homepageFooterData, listArraivel, listBanner, bannerHighlight, homepageContentData }: Props) => {
 
+
+    const { data: bestSeller, error: errorBestSeller } = useSWR(
+        "https://api.playitright.com/products?collection=10",
+        fetcher
+    );
+
+    const { data: recommend, error: errorRecommend } = useSWR(
+        "https://api.playitright.com/products?collection=13",
+        fetcher
+    );
+
+
+    //   let bestSeller = useGetProductByCollection(10)
+    //   let recommend = useGetProductByCollection(13)
 
     return (
         <>
@@ -93,10 +111,9 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
 
         let homepageContent = useGetHomePage()
-        let bestSeller = useGetProductByCollection(10)
-        let recommend = useGetProductByCollection(13)
 
-        let result = await Promise.all([homepageContent, bestSeller, recommend])
+
+        let result = await Promise.all([homepageContent])
 
         const listContent = []
         const listArraivel = []
@@ -151,8 +168,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
                 listBanner: listBanner,
                 bannerHighlight: bannerHighlight,
                 flashSaleHighlight: flashSaleHighlight,
-                bestSeller: result[1],
-                recommend: result[2]
+
             },
             revalidate: 60,
         };
