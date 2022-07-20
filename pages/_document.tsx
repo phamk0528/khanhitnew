@@ -12,7 +12,7 @@ export default class Document extends NextDocument {
             <Html>
                 <Head>
                     <link rel="shortcut icon" href="/static/favicon.ico" />
-
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
                 </Head>
                 <body>
 
