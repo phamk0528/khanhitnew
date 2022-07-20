@@ -15,18 +15,20 @@ type Props = {
 };
 const TrendingCard = ({ homepageContentData }: Props) => {
 
+  const announ = []
+  const carousel = []
 
-
-  const announ = homepageContentData?.find((x: any) => x?.type === "TextGroupView")
-  const carousel = homepageContentData?.find((x: any) => x?.type === "CarouselAnimationView")?.props?.values?.list?.map((x: any) => {
-    return {
-
-      idArticle: x?.id,
-      hero_desktop: { url: x?.url_bg },
-      hero_mobile: { url: x?.url_bg_mobile },
-
+  for (let index = 0; index < homepageContentData.length; index++) {
+    const element = homepageContentData[index];
+    if (element?.type === "TextGroupView") {
+      announ?.push(element)
+    } else if (element?.type === "CarouselAnimationView") {
+      carousel?.push(element)
     }
-  })
+
+  }
+  // const announ = homepageContentData?.find((x: any) => x?.type === "TextGroupView")
+  // const carousel = homepageContentData?.find((x: any) => x?.type === "CarouselAnimationView")
 
 
 
@@ -104,7 +106,7 @@ const TrendingCard = ({ homepageContentData }: Props) => {
           py={{ base: '2px', md: '8px' }}
 
         >
-          {announ?.props?.values?.valueText[0]?.title}
+          {announ[0]?.props?.values?.valueText[0]?.title}
         </Heading>
       </Box>
 
@@ -113,7 +115,15 @@ const TrendingCard = ({ homepageContentData }: Props) => {
       <Box w="full" pos="relative" overflow="hidden">
         <Box w="full">
           <Slider {...settings}>
-            {carousel?.map((slide: any) => (
+            {carousel[0]?.props?.values?.list?.map((x: any) => {
+              return {
+
+                idArticle: x?.id,
+                hero_desktop: { url: x?.url_bg },
+                hero_mobile: { url: x?.url_bg_mobile },
+
+              }
+            }).map((slide: any) => (
               <Box
                 key={slide.id}
                 h="55vh"
