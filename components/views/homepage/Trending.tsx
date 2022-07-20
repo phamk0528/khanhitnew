@@ -85,7 +85,7 @@ const TrendingCard = ({ homepageContentData }: Props) => {
     autoplay: true,
     arrows: true,
     speed: 500,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 10000,
     cssEase: 'linear',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
